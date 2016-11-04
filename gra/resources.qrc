@@ -18,5 +18,8 @@
         <file>images/gracz/gracz_prawo.png</file>
         <file>images/gracz/gracz_up.png</file>
         <file>images/tlo/change.png</file>
+        <file>images/tlo/ice.png</file>
+        <file>images/tlo/tree.png</file>
+        <file>images/tlo/water.png</file>
     </qresource>
 </RCC>

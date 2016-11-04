@@ -20,8 +20,8 @@ SOURCES += main.cpp \
     enemy.cpp \
     bullet_enemy.cpp \
     change.cpp \
-    bullet_enemy2.cpp \
-    enemy2.cpp
+    tree.cpp \
+    water.cpp
 
 HEADERS  += \
     bullet.h \
@@ -31,8 +31,8 @@ HEADERS  += \
     enemy.h \
     bullet_enemy.h \
     change.h \
-    bullet_enemy2.h \
-    enemy2.h
+    tree.h \
+    water.h
 
 FORMS    +=
 

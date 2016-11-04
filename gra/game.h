@@ -6,8 +6,9 @@
 #include <QGraphicsScene>
 #include "player.h"
 #include "enemy.h"
-#include "enemy2.h"
 #include "wall.h"
+#include "tree.h"
+#include "water.h"
 #include "change.h"
 
 
@@ -20,9 +21,12 @@ public:
     QGraphicsScene * scene;
     Player * player;
     Wall * wall;
+    Water * water;
+    Tree * tree;
     Enemy * enemy;
     Change * change;
-    Enemy2 * enemy2;
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #include <QList>
 #include <typeinfo>
 #include <wall.h>
+#include <water.h>
 #include "bullet.h"
 #include <Qdebug.h>
 
@@ -38,7 +39,19 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()+4,y());
             }
-            else if (pos().x() < 48)
+            else if (pos().x() > 747)
+            {
+
+            }
+        }
+        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
+        {
+
+            if(typeid(*(kolizje_sciana[i])) == typeid(Water))
+            {
+                    setPos(x()+4,y());
+            }
+            else if (pos().x() > 747)
             {
 
             }
@@ -59,6 +72,18 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
 
             if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
+            {
+                    setPos(x()-4,y());
+            }
+            else if (pos().x() > 747)
+            {
+
+            }
+        }
+        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
+        {
+
+            if(typeid(*(kolizje_sciana[i])) == typeid(Water))
             {
                     setPos(x()-4,y());
             }
@@ -91,6 +116,18 @@ void Player::keyPressEvent(QKeyEvent *event)
 
             }
         }
+        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
+        {
+
+            if(typeid(*(kolizje_sciana[i])) == typeid(Water))
+            {
+                    setPos(x(),y()+4);
+            }
+            else if (pos().y() < 21)
+            {
+
+            }
+        }
      }
 
     else if(event->key() == Qt::Key_Down)
@@ -115,6 +152,19 @@ void Player::keyPressEvent(QKeyEvent *event)
 
             }
         }
+        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
+        {
+
+            if(typeid(*(kolizje_sciana[i])) == typeid(Water))
+            {
+                    setPos(x(),y()-4);
+            }
+            else if (pos().y() > 550)
+            {
+
+            }
+        }
+
      }
     else if (event->key() == Qt::Key_Space)
     {

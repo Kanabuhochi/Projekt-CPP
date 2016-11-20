@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     bullet_enemy.cpp \
     change.cpp \
     tree.cpp \
-    water.cpp
+    water.cpp \
+    ice.cpp
 
 HEADERS  += \
     bullet.h \
@@ -32,7 +33,8 @@ HEADERS  += \
     bullet_enemy.h \
     change.h \
     tree.h \
-    water.h
+    water.h \
+    ice.h
 
 FORMS    +=
 

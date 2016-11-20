@@ -17,12 +17,7 @@ Game::Game()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
 
-    player = new Player();
-    player->setScale(1);
-    player->setPos(405,550);
-    player->setFlag(QGraphicsItem::ItemIsFocusable);
-    player->setFocus();
-    scene->addItem(player);
+
 
     enemy = new Enemy();
     enemy->setScale(1);
@@ -35,12 +30,17 @@ Game::Game()
     {
         for(j=65;j<581;j=j+87)
         {
-            water = new Water();
-            water->setPos(i,j);
-            scene->addItem(water);
+            ice = new Ice();
+            ice->setPos(i,j);
+            scene->addItem(ice);
         }
     }
-
+    player = new Player();
+    player->setScale(1);
+    player->setPos(405,550);
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
+    scene->addItem(player);
     for(i=65;i<800;i=i+99)
     {
         for(j=45;j<600;j=j+87)

@@ -8,6 +8,7 @@
 #include "enemy.h"
 #include "wall.h"
 #include "tree.h"
+#include "ice.h"
 #include "water.h"
 #include "change.h"
 
@@ -23,6 +24,7 @@ public:
     Wall * wall;
     Water * water;
     Tree * tree;
+    Ice * ice;
     Enemy * enemy;
     Change * change;
 

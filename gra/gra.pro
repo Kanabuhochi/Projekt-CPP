@@ -22,7 +22,10 @@ SOURCES += main.cpp \
     change.cpp \
     tree.cpp \
     water.cpp \
-    ice.cpp
+    ice.cpp \
+    menu.cpp \
+    cursor.cpp \
+    level1.cpp
 
 HEADERS  += \
     bullet.h \
@@ -34,7 +37,10 @@ HEADERS  += \
     change.h \
     tree.h \
     water.h \
-    ice.h
+    ice.h \
+    menu.h \
+    cursor.h \
+    level1.h
 
 FORMS    +=
 

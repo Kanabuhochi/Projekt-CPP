@@ -44,6 +44,7 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
         timer->start(30);
     }
 }
+/*
 void Bullet::move()
 {
     if(zwrot==1)
@@ -65,6 +66,7 @@ void Bullet::move()
         ruch4();
     }
 }
+*/
 void Bullet::ruch1()
 {
         QList<QGraphicsItem *> kolizje1 = collidingItems();
@@ -78,15 +80,6 @@ void Bullet::ruch1()
                     return;
             }
             else if(typeid(*(kolizje1[i])) == typeid(Enemy))
-            {
-                    scene()->removeItem(kolizje1[i]);
-                    scene()->removeItem(this);
-                    delete kolizje1[i];
-                    delete this;
-                    pociski_gracz=pociski_gracz-1;
-                    return;
-            }
-            else if(typeid(*(kolizje1[i])) == typeid(Enemy2))
             {
                     scene()->removeItem(kolizje1[i]);
                     scene()->removeItem(this);

@@ -3,7 +3,10 @@
 
 #include <QGraphicsView>
 #include <QWidget>
+#include <QObject>
 #include <QGraphicsScene>
+#include <QTimer>
+#include <QObject>
 #include "player.h"
 #include "enemy.h"
 #include "wall.h"
@@ -18,6 +21,7 @@
 
 class Game: public QGraphicsView
 {
+    Q_OBJECT
 public:
     /*
     Game();
@@ -31,10 +35,15 @@ public:
     Change * change;
     */
     Game();
+    QTimer * timer5;
     QGraphicsScene * scene;
+    int enemies = 0;
     int move = 0;
     void menu();
+    void play();
 
+public slots:
+    void spawn();
 };
 
 #endif // GAME_H

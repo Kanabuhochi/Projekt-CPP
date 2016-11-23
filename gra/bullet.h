@@ -7,12 +7,13 @@
 
 
 
-class Bullet: public QObject,public QGraphicsPixmapItem {
+class Bullet: public QObject,public QGraphicsPixmapItem
+{
     Q_OBJECT
 public:
     Bullet(QGraphicsItem * parent=0);
 public slots:
-    void move();
+    //void move();
     void ruch1();
     void ruch2();
     void ruch3();

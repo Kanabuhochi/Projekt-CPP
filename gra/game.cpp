@@ -2,15 +2,24 @@
 #include <QBrush>
 #include <QImage>
 #include <QTimer>
+#include <stdlib.h>
+#include <typeinfo>
+#include <time.h>
 #include <QFocusEvent>
 #include "menu.h"
-#include "cursor.h"
+#include <qdebug.h>
 
 extern int zwrot;
 //extern Menu * menu;
 
 Game::Game()
 {
+
+    timer5 = new QTimer();
+    connect(timer5,SIGNAL(timeout()),this,SLOT(spawn()));
+
+
+
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -32,6 +41,77 @@ void Game::menu()
     scene->addItem(cursor);
 
 }
+
+void Game::spawn()
+{
+    srand (time(NULL));
+    int x =rand() % 3 + 1;
+
+    if(x==1)
+    {
+        Enemy * enemy = new Enemy();
+        enemy->setScale(1);
+        enemy->setPos(50,25); // 395 i 740
+        scene->addItem(enemy);
+        enemies=enemies+1;
+        qDebug()<<"Enemies="<<enemies;
+    }
+    else if(x==2)
+    {
+        Enemy * enemy = new Enemy();
+        enemy->setScale(1);
+        enemy->setPos(395,25); // 395 i 740
+        scene->addItem(enemy);
+        enemies=enemies+1;
+        qDebug()<<"Enemies="<<enemies;
+    }
+    else if(x==3)
+    {
+        Enemy * enemy = new Enemy();
+        enemy->setScale(1);
+        enemy->setPos(740,25); // 395 i 740
+        scene->addItem(enemy);
+        enemies=enemies+1;
+        qDebug()<<"Enemies="<<enemies;
+    }
+    if(enemies==20)
+    {
+        timer5->stop();
+        delete timer5;
+    }
+
+}
+
+void Game::play()
+{
+    for(int i=50;i<751;i+=345)
+    {
+        Enemy * enemy = new Enemy();
+        enemy->setScale(1);
+        enemy->setPos(i,25); //395 i 740
+        scene->addItem(enemy);
+        enemies=enemies+1;
+        qDebug()<<"Enemies="<<enemies;
+    }
+    timer5->start(2500);
+
+/*
+    srand (time(NULL));
+    QTimer * spawner = new QTimer(this);
+    connect(spawner,SIGNAL(timeout()),this,SLOT(play()));
+    spawner->start(5000);
+    spawn();
+
+*/
+//spawn();
+}
+
+ //   srand (time(NULL));
+ //   QTimer * spawner = new QTimer(this);
+ //   connect(spawner,SIGNAL(timeout()),this,SLOT(spawn()));
+ //   spawner->start(3000);
+ //   spawn();
+
 
 
 /*

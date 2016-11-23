@@ -8,10 +8,10 @@ Level1::Level1()
     game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/bg8.jpg")));
     game->setScene(game->scene);
 
-    Enemy * enemy = new Enemy();
-    enemy->setScale(1);
-    enemy->setPos(50,30);
-    game->scene->addItem(enemy);
+  //  Enemy * enemy = new Enemy();
+  //  enemy->setScale(1);
+  //  enemy->setPos(50,25); // 400 i 745
+  //  game->scene->addItem(enemy);
 
     int i=0;
     int j=0;
@@ -41,4 +41,11 @@ Level1::Level1()
     }
 
     game->show();
+    game->play();
 }
+
+
+
+
+
+

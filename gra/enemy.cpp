@@ -10,25 +10,29 @@
 #include "change.h"
 #include <time.h>
 #include <qdebug.h>
-extern int zwrot1;
-extern int pociski_enemy;
+//extern int zwrot1;
+//extern int pociski_enemy;
 
 Enemy::Enemy(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
         srand (time(NULL));
+        int x =rand() % 5000 + 1500;
         setPixmap(QPixmap(":/images/images/enemy/enemy_up.png"));
+        timer = new QTimer();
+        timer1 = new QTimer();
+        timer2 = new QTimer();
 
-        QTimer * timer = new QTimer(this);
+       // QTimer * timer = new QTimer(this);
         connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-        timer->start(30);
+        timer->start(32);
 
-        QTimer * timer1 = new QTimer(this);
+       // QTimer * timer1 = new QTimer(this);
         connect(timer1,SIGNAL(timeout()),this,SLOT(change()));
         timer1->start(300);
 
-        QTimer * timer2 = new QTimer(this);
-        connect(timer1,SIGNAL(timeout()),this,SLOT(str()));
-        timer2->start(500);
+      //  QTimer * timer2 = new QTimer(this);
+        connect(timer2,SIGNAL(timeout()),this,SLOT(str()));
+        timer2->start(x);
 
 }
 
@@ -36,67 +40,75 @@ Enemy::Enemy(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
 void Enemy::str()
 {
-
-
     if(zwrot1 == 1)
     {
-        if (pociski_enemy==0)
-        {
-            Bullet_enemy * bullet_enemy = new Bullet_enemy();
+       // if (pociski_enemy==0)
+      //  {
+            qDebug()<<"SHOT";
+          //  pociski_enemy=pociski_enemy+1;
+            Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()-7,y()-20);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            pociski_enemy=pociski_enemy+1;
-        }
-        else if(pociski_enemy!=0)
-        {
+            //qDebug()<<"Pociski="<<pociski_enemy;
 
-        }
+     //   }
+     //   else if(pociski_enemy!=0)
+     //   {
+
+     //   }
      }
     else if(zwrot1 == 2)
     {
-        if(pociski_enemy==0)
-        {
-            Bullet_enemy * bullet_enemy = new Bullet_enemy();
+      //  if(pociski_enemy==0)
+     //   {
+            qDebug()<<"SHOT";
+     //       pociski_enemy=pociski_enemy+1;
+            Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()+20,y()-7);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            pociski_enemy=pociski_enemy+1;
-        }
-        else if(pociski_enemy!=0)
-        {
+            //qDebug()<<"Pociski="<<pociski_enemy;
 
-        }
+     //   }
+     //   else if(pociski_enemy!=0)
+    //    {
+
+   //     }
     }
     else if(zwrot1 == 3)
     {
-        if(pociski_enemy==0)
-        {
-            Bullet_enemy * bullet_enemy = new Bullet_enemy();
+    //    if(pociski_enemy==0)
+    //    {
+            qDebug()<<"SHOT";
+     //       pociski_enemy=pociski_enemy+1;
+            Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()-7,y()+20);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            pociski_enemy=pociski_enemy+1;
-        }
-        else if(pociski_enemy!=0)
-        {
+            //qDebug()<<"Pociski="<<pociski_enemy;
+       // }
+     //   else if(pociski_enemy!=0)
+     //   {
 
-        }
+     //   }
     }
     else if(zwrot1 == 4)
     {
-        if(pociski_enemy==0)
-        {
-            Bullet_enemy * bullet_enemy = new Bullet_enemy();
+   //     if(pociski_enemy==0)
+     //   {
+            qDebug()<<"SHOT";
+     //       pociski_enemy=pociski_enemy+1;
+            Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()-20,y()-7);
             bullet_enemy->setScale(0.7);
-            scene()->addItem(bullet_enemy);
-            pociski_enemy=pociski_enemy+1;
-        }
-        else if(pociski_enemy!=0)
-        {
+            scene()->addItem(bullet_enemy); 
+            //qDebug()<<"Pociski="<<pociski_enemy;
+       // }
+    //    else if(pociski_enemy!=0)
+   //     {
 
-        }
+   //     }
     }
 }
 
@@ -107,11 +119,15 @@ void Enemy::change()
     for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
     {
 
-        if(typeid(*(kolizje_sciana[i])) == typeid(Change))
+      //  if(typeid(*(kolizje_sciana[i])) == typeid(Change))
+      //  {
+      //          zwrot1= rand() % 4 + 1;
+      //          //qDebug()<<"Pociski="<<pociski_enemy;
+      //  }
+      if(typeid(*(kolizje_sciana[i])) == typeid(Enemy))
         {
                 zwrot1= rand() % 4 + 1;
         }
-
     }
 }
 void Enemy::move()

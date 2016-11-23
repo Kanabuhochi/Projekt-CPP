@@ -3,6 +3,8 @@
 #include "menu.h"
 #include "player.h"
 #include "enemy.h"
+#include <time.h>
+#include <stdlib.h>
 Game * game;
 
 int main(int argc, char *argv[])

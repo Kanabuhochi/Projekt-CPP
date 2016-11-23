@@ -13,7 +13,7 @@ public:
     Menu();
     QGraphicsScene * scene;
     Cursor * cursor;
-    int move = 0;
+   // int move = 0;
 };
 
 #endif // MENU_H

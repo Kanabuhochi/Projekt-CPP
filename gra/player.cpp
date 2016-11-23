@@ -10,11 +10,10 @@
 #include <Qdebug.h>
 
 extern int zwrot=1;
-extern int zwrot2=4;
 extern int pociski_gracz=0;
-extern int zwrot1=3;
-extern int pociski_enemy=0;
-extern int pociski_enemy2=0;
+//extern int zwrot1=3;
+//extern int pociski_enemy=0;
+
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {

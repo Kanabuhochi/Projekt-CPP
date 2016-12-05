@@ -5,7 +5,6 @@
         <file>images/pocisk/lewo.png</file>
         <file>images/pocisk/prawo.png</file>
         <file>images/tlo/wall.png</file>
-        <file>images/tlo/bg7.jpg</file>
         <file>images/enemy/enemy_left.png</file>
         <file>images/enemy/enemy_right.png</file>
         <file>images/enemy/enemy_up.png</file>
@@ -22,5 +21,6 @@
         <file>images/tlo/tree.png</file>
         <file>images/tlo/water.png</file>
         <file>images/tlo/menu2.png</file>
+        <file>images/tlo/bg9.jpg</file>
     </qresource>
 </RCC>

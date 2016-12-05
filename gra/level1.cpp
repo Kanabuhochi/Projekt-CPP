@@ -5,7 +5,7 @@ extern Game * game;
 Level1::Level1()
 {
     game->scene->clear();
-    game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/bg8.jpg")));
+    game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/bg9.jpg")));
     game->setScene(game->scene);
 
   //  Enemy * enemy = new Enemy();
@@ -15,18 +15,18 @@ Level1::Level1()
 
     int i=0;
     int j=0;
-    for(i=90;i<755;i=i+99)
+    for(i=140;i<660;i=i+40)
     {
-        for(j=65;j<581;j=j+87)
+        for(j=40;j<530;j=j+40)
         {
-            Ice *ice = new Ice();
-            ice->setPos(i,j);
-            game->scene->addItem(ice);
-        }
+            Tree *tree = new Tree();
+            tree->setPos(i,j);
+           game->scene->addItem(tree);
+       }
     }
     Player * player = new Player();
     player->setScale(1);
-    player->setPos(405,550);
+    player->setPos(405,520);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     game->scene->addItem(player);
     player->setFocus();
@@ -41,7 +41,7 @@ Level1::Level1()
     }
 
     game->show();
-    game->play();
+ //   game->play();
 }
 
 

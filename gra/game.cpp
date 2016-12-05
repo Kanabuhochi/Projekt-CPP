@@ -93,7 +93,7 @@ void Game::play()
         enemies=enemies+1;
         qDebug()<<"Enemies="<<enemies;
     }
-    timer5->start(2500);
+    timer5->start(10000);
 
 /*
     srand (time(NULL));

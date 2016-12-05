@@ -25,7 +25,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     if(event->key() == Qt::Key_Left)
     {
         qDebug()<<"X="<<pos().x()<<"Y="<<pos().y();
-        if (pos().x() > 48)
+        if (pos().x() > 141)
         {
             setPos(x()-3,y());
             zwrot = 4;
@@ -39,7 +39,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()+4,y());
             }
-            else if (pos().x() > 747)
+            else if (pos().x() > 660)
             {
 
             }
@@ -51,7 +51,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()+4,y());
             }
-            else if (pos().x() > 747)
+            else if (pos().x() > 660)
             {
 
             }
@@ -63,7 +63,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()-6,y());
             }
-            else if (pos().x() > 747)
+            else if (pos().x() > 660)
             {
 
             }
@@ -73,7 +73,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     else if(event->key() == Qt::Key_Right)
     {
         qDebug()<<"X="<<pos().x()<<"Y="<<pos().y();
-        if (pos().x() < 747)
+        if (pos().x() < 620)
         {
             setPos(x()+3,y());
             zwrot = 2;
@@ -87,7 +87,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()-4,y());
             }
-            else if (pos().x() > 747)
+            else if (pos().x() > 620)
             {
 
             }
@@ -99,7 +99,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()-4,y());
             }
-            else if (pos().x() > 747)
+            else if (pos().x() > 620)
             {
 
             }
@@ -111,7 +111,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()+6,y());
             }
-            else if (pos().x() > 747)
+            else if (pos().x() > 620)
             {
 
             }
@@ -121,7 +121,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     else if(event->key() == Qt::Key_Up)
     {
         qDebug()<<"X="<<pos().x()<<"Y="<<pos().y();
-        if (pos().y() > 21)
+        if (pos().y() > 40)
         {
             setPos(x(),y()-3);
             zwrot = 1;
@@ -135,7 +135,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()+4);
             }
-            else if (pos().y() < 21)
+            else if (pos().y() < 40)
             {
 
             }
@@ -147,7 +147,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()+4);
             }
-            else if (pos().y() < 21)
+            else if (pos().y() < 40)
             {
 
             }
@@ -159,7 +159,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()-6);
             }
-            else if (pos().y() < 21)
+            else if (pos().y() < 40)
             {
 
             }
@@ -169,7 +169,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     else if(event->key() == Qt::Key_Down)
     {
         qDebug()<<"X="<<pos().x()<<"Y="<<pos().y();
-        if (pos().y() < 550)
+        if (pos().y() < 520)
         {
             setPos(x(),y()+3);
             zwrot = 3;
@@ -183,7 +183,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()-4);
             }
-            else if (pos().y() > 550)
+            else if (pos().y() > 520)
             {
 
             }
@@ -195,7 +195,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()-4);
             }
-            else if (pos().y() > 550)
+            else if (pos().y() > 520)
             {
 
             }
@@ -207,7 +207,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()+6);
             }
-            else if (pos().y() > 550)
+            else if (pos().y() > 520)
             {
 
             }

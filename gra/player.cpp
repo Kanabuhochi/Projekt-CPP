@@ -39,6 +39,10 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()+4,y());
             }
+            else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+            {
+                    setPos(x()+4,y());
+            }
             else if (pos().x() > 660)
             {
 
@@ -73,7 +77,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     else if(event->key() == Qt::Key_Right)
     {
         qDebug()<<"X="<<pos().x()<<"Y="<<pos().y();
-        if (pos().x() < 620)
+        if (pos().x() < 630)
         {
             setPos(x()+3,y());
             zwrot = 2;
@@ -87,7 +91,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()-4,y());
             }
-            else if (pos().x() > 620)
+            else if (pos().x() > 630)
             {
 
             }
@@ -99,7 +103,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()-4,y());
             }
-            else if (pos().x() > 620)
+            else if (pos().x() > 630)
             {
 
             }
@@ -111,7 +115,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()+6,y());
             }
-            else if (pos().x() > 620)
+            else if (pos().x() > 630)
             {
 
             }
@@ -169,7 +173,7 @@ void Player::keyPressEvent(QKeyEvent *event)
     else if(event->key() == Qt::Key_Down)
     {
         qDebug()<<"X="<<pos().x()<<"Y="<<pos().y();
-        if (pos().y() < 520)
+        if (pos().y() < 530)
         {
             setPos(x(),y()+3);
             zwrot = 3;
@@ -183,7 +187,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()-4);
             }
-            else if (pos().y() > 520)
+            else if (pos().y() > 530)
             {
 
             }
@@ -195,7 +199,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()-4);
             }
-            else if (pos().y() > 520)
+            else if (pos().y() > 530)
             {
 
             }
@@ -207,7 +211,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()+6);
             }
-            else if (pos().y() > 520)
+            else if (pos().y() > 530)
             {
 
             }

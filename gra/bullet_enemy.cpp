@@ -105,7 +105,7 @@ void Bullet_enemy::ruch11()
             }
         }
         setPos(x(),y()-10);
-        if (pos().y() < 0)
+        if (pos().y() < 20)
         {
             scene()->removeItem(this);
             timer->stop();
@@ -142,7 +142,7 @@ void Bullet_enemy::ruch22()
             }
         }
         setPos(x()+10,y());
-        if (pos().x() > 747)
+        if (pos().x() > 635)
         {
             scene()->removeItem(this);
             timer->stop();
@@ -179,7 +179,7 @@ void Bullet_enemy::ruch33()
             }
         }
         setPos(x(),y()+10);
-        if (pos().y() > 560)
+        if (pos().y() > 535)
         {
             scene()->removeItem(this);
             timer->stop();
@@ -216,7 +216,7 @@ void Bullet_enemy::ruch44()
             }
         }
         setPos(x()-10,y());
-        if (pos().x() < 20)
+        if (pos().x() < 120)
         {
             scene()->removeItem(this);
             timer->stop();

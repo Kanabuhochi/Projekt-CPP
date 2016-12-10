@@ -51,7 +51,7 @@ void Game::spawn()
     {
         Enemy * enemy = new Enemy();
         enemy->setScale(1);
-        enemy->setPos(50,25); // 395 i 740
+        enemy->setPos(145,45); // 395 i 740
         scene->addItem(enemy);
         enemies=enemies+1;
         qDebug()<<"Enemies="<<enemies;
@@ -60,7 +60,7 @@ void Game::spawn()
     {
         Enemy * enemy = new Enemy();
         enemy->setScale(1);
-        enemy->setPos(395,25); // 395 i 740
+        enemy->setPos(385,45); // 395 i 740
         scene->addItem(enemy);
         enemies=enemies+1;
         qDebug()<<"Enemies="<<enemies;
@@ -69,7 +69,7 @@ void Game::spawn()
     {
         Enemy * enemy = new Enemy();
         enemy->setScale(1);
-        enemy->setPos(740,25); // 395 i 740
+        enemy->setPos(625,45); // 395 i 740
         scene->addItem(enemy);
         enemies=enemies+1;
         qDebug()<<"Enemies="<<enemies;
@@ -84,11 +84,11 @@ void Game::spawn()
 
 void Game::play()
 {
-    for(int i=50;i<751;i+=345)
+    for(int i=145;i<=625;i+=240)
     {
         Enemy * enemy = new Enemy();
         enemy->setScale(1);
-        enemy->setPos(i,25); //395 i 740
+        enemy->setPos(i,45); //395 i 740
         scene->addItem(enemy);
         enemies=enemies+1;
         qDebug()<<"Enemies="<<enemies;

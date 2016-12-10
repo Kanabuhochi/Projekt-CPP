@@ -8,6 +8,11 @@ Level1::Level1()
     game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/bg9.jpg")));
     game->setScene(game->scene);
 
+    game->bricks.clear();
+
+
+
+
   //  Enemy * enemy = new Enemy();
   //  enemy->setScale(1);
   //  enemy->setPos(50,25); // 400 i 745
@@ -15,13 +20,14 @@ Level1::Level1()
 
     int i=0;
     int j=0;
-    for(i=140;i<660;i=i+40)
+    for(i=140;i<660;i=i+80)
     {
-        for(j=40;j<530;j=j+40)
+        for(j=140;j<200;j=j+80)
         {
-            Tree *tree = new Tree();
-            tree->setPos(i,j);
-           game->scene->addItem(tree);
+            Brick *brick = new Brick();
+            brick->setPos(i,j);
+            game->scene->addItem(brick);
+            game->bricks.append(brick);
        }
     }
     Player * player = new Player();
@@ -30,7 +36,7 @@ Level1::Level1()
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     game->scene->addItem(player);
     player->setFocus();
-    for(i=65;i<800;i=i+99)
+   /* for(i=65;i<800;i=i+99)
     {
         for(j=45;j<600;j=j+87)
         {
@@ -38,13 +44,16 @@ Level1::Level1()
             change->setPos(i,j);
             game->scene->addItem(change);
         }
-    }
+    }*/
 
     game->show();
- //   game->play();
+    game->play();
 }
 
-
+Level1::~Level1()
+{
+    delete this;
+}
 
 
 

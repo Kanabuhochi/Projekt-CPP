@@ -4,6 +4,7 @@
 #include "game.h"
 #include "player.h"
 #include "ice.h"
+#include "brick.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QBrush>
@@ -17,7 +18,7 @@ class Level1
 {
 public:
     Level1();
-
+    ~Level1();
 };
 
 #endif // LEVEL1_H

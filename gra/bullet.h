@@ -4,6 +4,8 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QObject>
+#include "brick.h"
+
 
 
 

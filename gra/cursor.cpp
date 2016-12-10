@@ -4,6 +4,7 @@
 //#include "menu.h"
 #include "game.h"
 #include "level1.h"
+#include "level2.h"
 
 //extern Menu * menu;
 extern Game * game;

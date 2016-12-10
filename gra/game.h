@@ -10,11 +10,14 @@
 #include "player.h"
 #include "enemy.h"
 #include "wall.h"
+#include "brick.h"
 #include "tree.h"
 #include "ice.h"
 #include "water.h"
 #include "change.h"
 #include "cursor.h"
+#include <QList>
+#include <level1.h>
 
 
 
@@ -41,6 +44,8 @@ public:
     int move = 0;
     void menu();
     void play();
+    QList<Brick *> bricks;
+
 
 public slots:
     void spawn();

@@ -25,7 +25,14 @@ SOURCES += main.cpp \
     ice.cpp \
     menu.cpp \
     cursor.cpp \
-    level1.cpp
+    level1.cpp \
+    brick.cpp \
+    brickhitdown.cpp \
+    brickhitup.cpp \
+    brickhitleft.cpp \
+    brickhitright.cpp \
+    level2.cpp \
+    brick_corner.cpp
 
 HEADERS  += \
     bullet.h \
@@ -40,7 +47,14 @@ HEADERS  += \
     ice.h \
     menu.h \
     cursor.h \
-    level1.h
+    level1.h \
+    brick.h \
+    brickhitdown.h \
+    brickhitup.h \
+    brickhitleft.h \
+    brickhitright.h \
+    level2.h \
+    brick_corner.h
 
 FORMS    +=
 

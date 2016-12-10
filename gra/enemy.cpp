@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <typeinfo>
 #include <wall.h>
+#include <brick.h>
 #include "bullet_enemy.h"
 #include <stdlib.h>
 #include "change.h"
@@ -24,7 +25,7 @@ Enemy::Enemy(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
        // QTimer * timer = new QTimer(this);
         connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-        timer->start(32);
+        timer->start(32);  //32
 
        // QTimer * timer1 = new QTimer(this);
         connect(timer1,SIGNAL(timeout()),this,SLOT(change()));
@@ -161,11 +162,11 @@ void Enemy::ruch1()//gora
 {
     setPixmap(QPixmap(":/images/images/enemy/enemy_up.png"));
 
-    if (pos().y() > 29)
+    if (pos().y() > 40)
     {
         setPos(x(),y()-3);
     }
-    else if (pos().y() <= 29)
+    else if (pos().y() <= 40)
     {
         zwrot1 = rand() % 4 + 1;
         //ruch4();
@@ -179,6 +180,11 @@ void Enemy::ruch1()//gora
                 setPos(x(),y()+4);
                 zwrot1= rand() % 4 + 1;
         }
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        {
+                setPos(x(),y()+4);
+                zwrot1= rand() % 4 + 1;
+        }
 
     }
 }
@@ -187,11 +193,11 @@ void Enemy::ruch2()//prawo
 {
     setPixmap(QPixmap(":/images/images/enemy/enemy_right.png"));
 
-    if (pos().x() < 746)
+    if (pos().x() < 630)
     {
         setPos(x()+3,y());
     }
-    else if (pos().x() >= 746)
+    else if (pos().x() >= 630)
     {
         zwrot1 = rand() % 4 + 1;
         //ruch1();
@@ -205,6 +211,11 @@ void Enemy::ruch2()//prawo
                 setPos(x()-4,y());
                 zwrot1= rand() % 4 + 1;
         }
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        {
+                setPos(x()-4,y());
+                zwrot1= rand() % 4 + 1;
+        }
 
     }
 }
@@ -213,11 +224,11 @@ void Enemy::ruch3()//dol
 {
     setPixmap(QPixmap(":/images/images/enemy/enemy_down.png"));
 
-    if (pos().y() < 549)
+    if (pos().y() < 530)
     {
         setPos(x(),y()+3);
     }
-    else if (pos().y() > 547)
+    else if (pos().y() >= 530)
     {
         zwrot1 = rand() % 4 + 1;
         //ruch2();
@@ -231,6 +242,11 @@ void Enemy::ruch3()//dol
                 setPos(x(),y()-4);
                 zwrot1= rand() % 4 + 1;
         }
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        {
+                setPos(x(),y()-4);
+                zwrot1= rand() % 4 + 1;
+        }
 
     }
 }
@@ -239,12 +255,12 @@ void Enemy::ruch4()//lewo
 {
     setPixmap(QPixmap(":/images/images/enemy/enemy_left.png"));
 
-    if (pos().x() > 50)
+    if (pos().x() > 141)
     {
         setPos(x()-3,y());
 
     }
-    else if (pos().x() <= 50)
+    else if (pos().x() <= 141)
     {
         zwrot1 = rand() % 4 + 1;
         //ruch3();
@@ -254,6 +270,11 @@ void Enemy::ruch4()//lewo
     {
 
         if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
+        {
+                setPos(x()+4,y());
+                zwrot1= rand() % 4 + 1;
+        }
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
         {
                 setPos(x()+4,y());
                 zwrot1= rand() % 4 + 1;

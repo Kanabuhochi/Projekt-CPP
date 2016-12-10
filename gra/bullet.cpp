@@ -1,13 +1,25 @@
 #include "bullet.h"
 #include "enemy.h"
 #include "enemy2.h"
+#include "brick.h"
+#include "brick_corner.h"
+#include "brickhitdown.h"
+#include "brickhitup.h"
+#include "brickhitright.h"
+#include "brickhitleft.h"
 #include "wall.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
+#include "game.h"
 #include <typeinfo>
+#include <qdebug.h>
+#include <level2.h>
+
 extern int zwrot;
 extern int pociski_gracz;
+extern Game * game;
+//extern Brick * brick;
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
@@ -69,6 +81,7 @@ void Bullet::move()
 */
 void Bullet::ruch1()
 {
+        setPos(x(),y()-10);
         QList<QGraphicsItem *> kolizje1 = collidingItems();
         for(int i = 0,  n = kolizje1.size(); i<n; i++)
         {
@@ -86,11 +99,110 @@ void Bullet::ruch1()
                     delete kolizje1[i];
                     delete this;
                     pociski_gracz=pociski_gracz-1;
+                    game->enemies -= 1;
+                    qDebug()<<"Enemies = "<<game->enemies;
+                    if(game->enemies == 0)
+                    {
+                        Level2 * level2 = new Level2();
+                    }
                     return;
             }
-        }
-        setPos(x(),y()-10);
-        if (pos().y() < 0)
+            else if(typeid(*(kolizje1[i])) == typeid(Brick))
+            {
+                    int x = kolizje1[i]->pos().x();
+                    int y = kolizje1[i]->pos().y();
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brickhitdown *brickhitdown = new Brickhitdown();
+                    brickhitdown->setPos(x,y);
+                    game->scene->addItem(brickhitdown);
+                    scene()->removeItem(kolizje1[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje1[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje1[i])) == typeid(Brickhitdown))
+            {
+                    scene()->removeItem(kolizje1[i]);
+                    scene()->removeItem(this);
+                    delete kolizje1[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje1[i])) == typeid(Brickhitright))
+            {
+                int x = kolizje1[i]->pos().x();
+                int y = kolizje1[i]->pos().y();
+                qDebug()<<"x"<<x<<"y"<<y;
+                Brick_corner *brick_corner = new Brick_corner();
+                brick_corner->setPos(x,y);
+                game->scene->addItem(brick_corner);
+                scene()->removeItem(kolizje1[i]);
+                scene()->removeItem(this);
+
+                delete kolizje1[i];
+                delete this;
+                pociski_gracz=pociski_gracz-1;
+                return;
+            }
+            else if(typeid(*(kolizje1[i])) == typeid(Brickhitleft))
+            {
+                int x = kolizje1[i]->pos().x();
+                int y = kolizje1[i]->pos().y();
+                qDebug()<<"x"<<x<<"y"<<y;
+                Brick_corner *brick_corner = new Brick_corner();
+                brick_corner->setPos(x,y);
+                game->scene->addItem(brick_corner);
+                scene()->removeItem(kolizje1[i]);
+                scene()->removeItem(this);
+
+                delete kolizje1[i];
+                delete this;
+                pociski_gracz=pociski_gracz-1;
+                return;
+            }
+            else if(typeid(*(kolizje1[i])) == typeid(Brick_corner))
+            {
+                    scene()->removeItem(kolizje1[i]);
+                    scene()->removeItem(this);
+                    delete kolizje1[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+
+           /* for(int z=0; z < game->bricks.count(); z++)
+             {
+                 if(this->pos().x() >= game->bricks[z]->pos().x() && this->pos().x() <= game->bricks[z]->pos().x()+40)
+                 {
+                    qDebug()<<"Bulletx"<<z;
+                    if(this->pos().y() <= game->bricks[z]->pos().y()+40 && this->pos().y() >= game->bricks[z]->pos().y())
+                    {
+                        qDebug()<<"Y"<<game->bricks[z]->pos().y();
+                        scene()->removeItem(this);
+                        delete this;
+                        pociski_gracz=pociski_gracz-1;
+                        game->bricks[z]->zburz();
+                    }
+                 }
+             }*/
+           // else if(typeid(*(kolizje1[i])) == typeid(Brick))
+           //else if(pos().y() )
+            //{
+               // qDebug()<<"TEST";
+               //     kolizje1[i]
+               //     delete this;
+               //     pociski_gracz=pociski_gracz-1;
+               //     return;
+
+
+            }
+       // }
+
+        if (pos().y() < 20)
         {
             scene()->removeItem(this);
             delete this;
@@ -116,9 +228,72 @@ void Bullet::ruch2()
                     delete kolizje2[i];
                     delete this;
                     pociski_gracz=pociski_gracz-1;
+                    game->enemies -= 1;
+                    qDebug()<<"Enemies = "<<game->enemies;
+                    if(game->enemies == 0)
+                    {
+                        Level2 * level2 = new Level2();
+                    }
                     return;
             }
-            else if(typeid(*(kolizje2[i])) == typeid(Enemy2))
+            else if(typeid(*(kolizje2[i])) == typeid(Brick))
+            {
+                    int x = kolizje2[i]->pos().x()+20;
+                    int y = kolizje2[i]->pos().y();
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brickhitleft *brickhitleft = new Brickhitleft();
+                    brickhitleft->setPos(x,y);
+                    game->scene->addItem(brickhitleft);
+                    scene()->removeItem(kolizje2[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje2[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje2[i])) == typeid(Brickhitup))
+            {
+                    int x = kolizje2[i]->pos().x()+20;
+                    int y = kolizje2[i]->pos().y();
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brick_corner *brick_corner = new Brick_corner();
+                    brick_corner->setPos(x,y);
+                    game->scene->addItem(brick_corner);
+                    scene()->removeItem(kolizje2[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje2[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje2[i])) == typeid(Brickhitdown))
+            {
+                    int x = kolizje2[i]->pos().x()+20;
+                    int y = kolizje2[i]->pos().y();
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brick_corner *brick_corner = new Brick_corner();
+                    brick_corner->setPos(x,y);
+                    game->scene->addItem(brick_corner);
+                    scene()->removeItem(kolizje2[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje2[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje2[i])) == typeid(Brickhitleft))
+            {
+                    scene()->removeItem(kolizje2[i]);
+                    scene()->removeItem(this);
+                    delete kolizje2[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje2[i])) == typeid(Brick_corner))
             {
                     scene()->removeItem(kolizje2[i]);
                     scene()->removeItem(this);
@@ -129,7 +304,7 @@ void Bullet::ruch2()
             }
         }
         setPos(x()+10,y());
-        if (pos().x() > 747)
+        if (pos().x() > 635)
         {
             scene()->removeItem(this);
             delete this;
@@ -155,9 +330,72 @@ void Bullet::ruch3()
                     delete kolizje3[i];
                     delete this;
                     pociski_gracz=pociski_gracz-1;
+                    game->enemies -= 1;
+                    qDebug()<<"Enemies = "<<game->enemies;
+                    if(game->enemies == 0)
+                    {
+                        Level2 * level2 = new Level2();
+                    }
                     return;
             }
-            else if(typeid(*(kolizje3[i])) == typeid(Enemy2))
+            else if(typeid(*(kolizje3[i])) == typeid(Brick))
+            {
+                    int x = kolizje3[i]->pos().x();
+                    int y = kolizje3[i]->pos().y()+20;
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brickhitup *brickhitup = new Brickhitup();
+                    brickhitup->setPos(x,y);
+                    game->scene->addItem(brickhitup);
+                    scene()->removeItem(kolizje3[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje3[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje3[i])) == typeid(Brickhitup))
+            {
+                    scene()->removeItem(kolizje3[i]);
+                    scene()->removeItem(this);
+                    delete kolizje3[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje3[i])) == typeid(Brickhitright))
+            {
+                    int x = kolizje3[i]->pos().x();
+                    int y = kolizje3[i]->pos().y()+20;
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brick_corner *brick_corner = new Brick_corner();
+                    brick_corner->setPos(x,y);
+                    game->scene->addItem(brick_corner);
+                    scene()->removeItem(kolizje3[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje3[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje3[i])) == typeid(Brickhitleft))
+            {
+                    int x = kolizje3[i]->pos().x();
+                    int y = kolizje3[i]->pos().y()+20;
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brick_corner *brick_corner = new Brick_corner();
+                    brick_corner->setPos(x,y);
+                    game->scene->addItem(brick_corner);
+                    scene()->removeItem(kolizje3[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje3[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje3[i])) == typeid(Brick_corner))
             {
                     scene()->removeItem(kolizje3[i]);
                     scene()->removeItem(this);
@@ -168,7 +406,7 @@ void Bullet::ruch3()
             }
         }
         setPos(x(),y()+10);
-        if (pos().y() > 560)
+        if (pos().y() > 535)
         {
             scene()->removeItem(this);
             delete this;
@@ -194,9 +432,72 @@ void Bullet::ruch4()
                     delete kolizje4[i];
                     delete this;
                     pociski_gracz=pociski_gracz-1;
+                    game->enemies -= 1;
+                    qDebug()<<"Enemies = "<<game->enemies;
+                    if(game->enemies == 0)
+                    {
+                        Level2 * level2 = new Level2();
+                    }
                     return;
             }
-            else if(typeid(*(kolizje4[i])) == typeid(Enemy2))
+            else if(typeid(*(kolizje4[i])) == typeid(Brick))
+            {
+                    int x = kolizje4[i]->pos().x();
+                    int y = kolizje4[i]->pos().y();
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brickhitright *brickhitright = new Brickhitright();
+                    brickhitright->setPos(x,y);
+                    game->scene->addItem(brickhitright);
+                    scene()->removeItem(kolizje4[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje4[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje4[i])) == typeid(Brickhitup))
+            {
+                    int x = kolizje4[i]->pos().x();
+                    int y = kolizje4[i]->pos().y();
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brick_corner *brick_corner = new Brick_corner();
+                    brick_corner->setPos(x,y);
+                    game->scene->addItem(brick_corner);
+                    scene()->removeItem(kolizje4[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje4[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje4[i])) == typeid(Brickhitdown))
+            {
+                    int x = kolizje4[i]->pos().x();
+                    int y = kolizje4[i]->pos().y();
+                    qDebug()<<"x"<<x<<"y"<<y;
+                    Brick_corner *brick_corner = new Brick_corner();
+                    brick_corner->setPos(x,y);
+                    game->scene->addItem(brick_corner);
+                    scene()->removeItem(kolizje4[i]);
+                    scene()->removeItem(this);
+
+                    delete kolizje4[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje4[i])) == typeid(Brick_corner))
+            {
+                    scene()->removeItem(kolizje4[i]);
+                    scene()->removeItem(this);
+                    delete kolizje4[i];
+                    delete this;
+                    pociski_gracz=pociski_gracz-1;
+                    return;
+            }
+            else if(typeid(*(kolizje4[i])) == typeid(Brickhitright))
             {
                     scene()->removeItem(kolizje4[i]);
                     scene()->removeItem(this);
@@ -207,7 +508,7 @@ void Bullet::ruch4()
             }
         }
         setPos(x()-10,y());
-        if (pos().x() < 20)
+        if (pos().x() < 120)
         {
             scene()->removeItem(this);
             delete this;

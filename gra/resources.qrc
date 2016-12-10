@@ -22,5 +22,11 @@
         <file>images/tlo/water.png</file>
         <file>images/tlo/menu2.png</file>
         <file>images/tlo/bg9.jpg</file>
+        <file>images/tlo/brick.png</file>
+        <file>images/tlo/brick_lefthit.png</file>
+        <file>images/tlo/brick-downhit.png</file>
+        <file>images/tlo/brick-righthit.png</file>
+        <file>images/tlo/brickuphit.png</file>
+        <file>images/tlo/brick-corner.png</file>
     </qresource>
 </RCC>

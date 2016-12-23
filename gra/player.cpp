@@ -7,6 +7,12 @@
 #include <ice.h>
 #include <water.h>
 #include "bullet.h"
+#include "game.h"
+#include "brickhitdown.h"
+#include "brickhitleft.h"
+#include "brickhitright.h"
+#include "brickhitup.h"
+#include "brick_corner.h"
 #include <Qdebug.h>
 
 extern int zwrot=1;
@@ -39,10 +45,11 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x()+4,y());
             }
-            else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+            else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner))
             {
                     setPos(x()+4,y());
             }
+
             else if (pos().x() > 660)
             {
 
@@ -88,6 +95,10 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
 
             if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
+            {
+                    setPos(x()-4,y());
+            }
+            else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner))
             {
                     setPos(x()-4,y());
             }
@@ -139,6 +150,10 @@ void Player::keyPressEvent(QKeyEvent *event)
             {
                     setPos(x(),y()+4);
             }
+            else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner))
+            {
+                    setPos(x(),y()+4);
+            }
             else if (pos().y() < 40)
             {
 
@@ -184,6 +199,10 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
 
             if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
+            {
+                    setPos(x(),y()-4);
+            }
+            else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner))
             {
                     setPos(x(),y()-4);
             }

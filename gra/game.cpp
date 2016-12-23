@@ -4,7 +4,9 @@
 #include <QTimer>
 #include <stdlib.h>
 #include <typeinfo>
+#include "enemy_fast.h"
 #include <time.h>
+#include "panzer.h"
 #include <QFocusEvent>
 #include "menu.h"
 #include <qdebug.h>
@@ -84,16 +86,16 @@ void Game::spawn()
 
 void Game::play()
 {
-    for(int i=145;i<=625;i+=240)
-    {
-        Enemy * enemy = new Enemy();
-        enemy->setScale(1);
-        enemy->setPos(i,45); //395 i 740
-        scene->addItem(enemy);
+  //  for(int i=145;i<=625;i+=240)
+  //  {
+        Panzer * panzer = new Panzer();
+        panzer->setScale(1);
+        panzer->setPos(385,45); //395 i 740
+        scene->addItem(panzer);
         enemies=enemies+1;
         qDebug()<<"Enemies="<<enemies;
-    }
-    timer5->start(10000);
+ //   }
+   // timer5->start(10000);
 
 /*
     srand (time(NULL));

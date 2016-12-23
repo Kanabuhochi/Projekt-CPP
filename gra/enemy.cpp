@@ -5,10 +5,10 @@
 #include <QTimer>
 #include <typeinfo>
 #include <wall.h>
-#include <brick.h>
 #include "bullet_enemy.h"
 #include <stdlib.h>
 #include "change.h"
+#include "game.h"
 #include <time.h>
 #include <qdebug.h>
 //extern int zwrot1;
@@ -17,7 +17,8 @@
 Enemy::Enemy(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
         srand (time(NULL));
-        int x =rand() % 5000 + 1500;
+        int x = rand() % 5000 + 1500;
+        int y = rand() % 3000 + 1500;
         setPixmap(QPixmap(":/images/images/enemy/enemy_up.png"));
         timer = new QTimer();
         timer1 = new QTimer();
@@ -29,11 +30,13 @@ Enemy::Enemy(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
        // QTimer * timer1 = new QTimer(this);
         connect(timer1,SIGNAL(timeout()),this,SLOT(change()));
-        timer1->start(300);
+        timer1->start(y);
 
       //  QTimer * timer2 = new QTimer(this);
         connect(timer2,SIGNAL(timeout()),this,SLOT(str()));
         timer2->start(x);
+
+
 
 }
 
@@ -113,23 +116,9 @@ void Enemy::str()
     }
 }
 
-
 void Enemy::change()
 {
-    QList<QGraphicsItem *> kolizje_sciana = collidingItems();
-    for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
-    {
-
-      //  if(typeid(*(kolizje_sciana[i])) == typeid(Change))
-      //  {
-      //          zwrot1= rand() % 4 + 1;
-      //          //qDebug()<<"Pociski="<<pociski_enemy;
-      //  }
-      if(typeid(*(kolizje_sciana[i])) == typeid(Enemy))
-        {
-                zwrot1= rand() % 4 + 1;
-        }
-    }
+    zwrot1 = rand() % 4 + 1;
 }
 void Enemy::move()
 {
@@ -180,7 +169,7 @@ void Enemy::ruch1()//gora
                 setPos(x(),y()+4);
                 zwrot1= rand() % 4 + 1;
         }
-        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner) || typeid(*(kolizje_sciana[i])) == typeid(Water))
         {
                 setPos(x(),y()+4);
                 zwrot1= rand() % 4 + 1;

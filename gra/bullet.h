@@ -5,17 +5,30 @@
 #include <QGraphicsItem>
 #include <QObject>
 #include "brick.h"
+#include "panzer.h"
+#include "game.h"
+#include "enemy.h"
+#include "enemy_fast.h"
+#include "wall.h"
+#include <QTimer>
+#include <QGraphicsScene>
+#include <QList>
+#include <typeinfo>
+#include <qdebug.h>
+#include <level2.h>
 
 
 
 
 class Bullet: public QObject,public QGraphicsPixmapItem
 {
+
     Q_OBJECT
 public:
     Bullet(QGraphicsItem * parent=0);
 public slots:
     //void move();
+
     void ruch1();
     void ruch2();
     void ruch3();

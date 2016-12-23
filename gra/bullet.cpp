@@ -1,25 +1,9 @@
 #include "bullet.h"
-#include "enemy.h"
-#include "enemy2.h"
-#include "brick.h"
-#include "brick_corner.h"
-#include "brickhitdown.h"
-#include "brickhitup.h"
-#include "brickhitright.h"
-#include "brickhitleft.h"
-#include "wall.h"
-#include <QTimer>
-#include <QGraphicsScene>
-#include <QList>
-#include "game.h"
-#include <typeinfo>
-#include <qdebug.h>
-#include <level2.h>
 
 extern int zwrot;
 extern int pociski_gracz;
 extern Game * game;
-//extern Brick * brick;
+Panzer * panzer;
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
@@ -92,7 +76,7 @@ void Bullet::ruch1()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje1[i])) == typeid(Enemy))
+            else if(typeid(*(kolizje1[i])) == typeid(Enemy) || typeid(*(kolizje1[i])) == typeid(Enemy_fast))
             {
                     scene()->removeItem(kolizje1[i]);
                     scene()->removeItem(this);
@@ -173,35 +157,7 @@ void Bullet::ruch1()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-
-           /* for(int z=0; z < game->bricks.count(); z++)
-             {
-                 if(this->pos().x() >= game->bricks[z]->pos().x() && this->pos().x() <= game->bricks[z]->pos().x()+40)
-                 {
-                    qDebug()<<"Bulletx"<<z;
-                    if(this->pos().y() <= game->bricks[z]->pos().y()+40 && this->pos().y() >= game->bricks[z]->pos().y())
-                    {
-                        qDebug()<<"Y"<<game->bricks[z]->pos().y();
-                        scene()->removeItem(this);
-                        delete this;
-                        pociski_gracz=pociski_gracz-1;
-                        game->bricks[z]->zburz();
-                    }
-                 }
-             }*/
-           // else if(typeid(*(kolizje1[i])) == typeid(Brick))
-           //else if(pos().y() )
-            //{
-               // qDebug()<<"TEST";
-               //     kolizje1[i]
-               //     delete this;
-               //     pociski_gracz=pociski_gracz-1;
-               //     return;
-
-
-            }
-       // }
-
+        }
         if (pos().y() < 20)
         {
             scene()->removeItem(this);
@@ -221,7 +177,7 @@ void Bullet::ruch2()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje2[i])) == typeid(Enemy))
+            else if(typeid(*(kolizje2[i])) == typeid(Enemy) || typeid(*(kolizje2[i])) == typeid(Enemy_fast) || typeid(*(kolizje2[i])) == typeid(Panzer))
             {
                     scene()->removeItem(kolizje2[i]);
                     scene()->removeItem(this);
@@ -236,6 +192,7 @@ void Bullet::ruch2()
                     }
                     return;
             }
+
             else if(typeid(*(kolizje2[i])) == typeid(Brick))
             {
                     int x = kolizje2[i]->pos().x()+20;
@@ -323,7 +280,7 @@ void Bullet::ruch3()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje3[i])) == typeid(Enemy))
+            else if(typeid(*(kolizje3[i])) == typeid(Enemy) || typeid(*(kolizje3[i])) == typeid(Enemy_fast) || typeid(*(kolizje3[i])) == typeid(Panzer))
             {
                     scene()->removeItem(kolizje3[i]);
                     scene()->removeItem(this);
@@ -338,6 +295,7 @@ void Bullet::ruch3()
                     }
                     return;
             }
+
             else if(typeid(*(kolizje3[i])) == typeid(Brick))
             {
                     int x = kolizje3[i]->pos().x();
@@ -425,7 +383,7 @@ void Bullet::ruch4()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje4[i])) == typeid(Enemy))
+            else if(typeid(*(kolizje4[i])) == typeid(Enemy) || typeid(*(kolizje4[i])) == typeid(Enemy_fast) || typeid(*(kolizje4[i])) == typeid(Panzer))
             {
                     scene()->removeItem(kolizje4[i]);
                     scene()->removeItem(this);
@@ -440,6 +398,7 @@ void Bullet::ruch4()
                     }
                     return;
             }
+
             else if(typeid(*(kolizje4[i])) == typeid(Brick))
             {
                     int x = kolizje4[i]->pos().x();

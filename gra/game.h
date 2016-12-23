@@ -9,8 +9,14 @@
 #include <QObject>
 #include "player.h"
 #include "enemy.h"
+#include "bullet.h"
 #include "wall.h"
 #include "brick.h"
+#include "brick_corner.h"
+#include "brickhitdown.h"
+#include "brickhitup.h"
+#include "brickhitright.h"
+#include "brickhitleft.h"
 #include "tree.h"
 #include "ice.h"
 #include "water.h"
@@ -26,17 +32,6 @@ class Game: public QGraphicsView
 {
     Q_OBJECT
 public:
-    /*
-    Game();
-    QGraphicsScene * scene;
-    Player * player;
-    Wall * wall;
-    Water * water;
-    Tree * tree;
-    Ice * ice;
-    Enemy * enemy;
-    Change * change;
-    */
     Game();
     QTimer * timer5;
     QGraphicsScene * scene;

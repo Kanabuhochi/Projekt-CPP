@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+CONFIG += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,7 +33,9 @@ SOURCES += main.cpp \
     brickhitleft.cpp \
     brickhitright.cpp \
     level2.cpp \
-    brick_corner.cpp
+    brick_corner.cpp \
+    enemy_fast.cpp \
+    panzer.cpp
 
 HEADERS  += \
     bullet.h \
@@ -54,7 +57,9 @@ HEADERS  += \
     brickhitleft.h \
     brickhitright.h \
     level2.h \
-    brick_corner.h
+    brick_corner.h \
+    enemy_fast.h \
+    panzer.h
 
 FORMS    +=
 

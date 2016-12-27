@@ -8,7 +8,7 @@ Level1::Level1()
     game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/bg9.jpg")));
     game->setScene(game->scene);
 
-    game->bricks.clear();
+    //game->bricks.clear();
 
 
 
@@ -18,18 +18,18 @@ Level1::Level1()
   //  enemy->setPos(50,25); // 400 i 745
   //  game->scene->addItem(enemy);
 
-    int i=0;
-    int j=0;
-    for(i=140;i<660;i=i+80)
-    {
-        for(j=140;j<200;j=j+80)
-        {
-            Brick *brick = new Brick();
-            brick->setPos(i,j);
-            game->scene->addItem(brick);
-            game->bricks.append(brick);
-       }
-    }
+ //   int i=0;
+ //   int j=0;
+ //   for(i=140;i<660;i=i+80)
+ //   {
+  //      for(j=140;j<200;j=j+80)
+  //      {
+  //          Brick *brick = new Brick();
+  //          brick->setPos(i,j);
+  //          game->scene->addItem(brick);
+   //         game->bricks.append(brick);
+   //    }
+    //}
     Player * player = new Player();
     player->setScale(1);
     player->setPos(405,520);

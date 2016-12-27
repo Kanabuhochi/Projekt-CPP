@@ -23,6 +23,7 @@
 #include "change.h"
 #include "cursor.h"
 #include <QList>
+#include "remaining.h"
 #include <level1.h>
 
 
@@ -34,16 +35,20 @@ class Game: public QGraphicsView
 public:
     Game();
     QTimer * timer5;
+    QTimer * checker;
     QGraphicsScene * scene;
     int enemies = 0;
     int move = 0;
+    int score = 0;
+    int total = 20;
     void menu();
     void play();
-    QList<Brick *> bricks;
+    QList<Remaining *> remains;
 
 
 public slots:
     void spawn();
+    void check();
 };
 
 #endif // GAME_H

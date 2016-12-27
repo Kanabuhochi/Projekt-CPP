@@ -7,7 +7,7 @@ Level2::Level2()
     game->scene->clear();
     game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/bg9.jpg")));
     game->setScene(game->scene);
-    game->bricks.clear();
+    //game->bricks.clear();
     Player * player = new Player();
     player->setScale(1);
     player->setPos(405,520);

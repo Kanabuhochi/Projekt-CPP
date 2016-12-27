@@ -1,32 +1,29 @@
 <RCC>
     <qresource prefix="/images">
+        <file>images/tlo/bg9.jpg</file>
+        <file>images/tlo/brick.png</file>
+        <file>images/tlo/brick_lefthit.png</file>
+        <file>images/tlo/brick-corner.png</file>
+        <file>images/tlo/brick-downhit.png</file>
+        <file>images/tlo/brick-righthit.png</file>
+        <file>images/tlo/brickuphit.png</file>
+        <file>images/tlo/ice.png</file>
+        <file>images/tlo/menu2.png</file>
+        <file>images/tlo/tree.png</file>
+        <file>images/tlo/wall.png</file>
+        <file>images/tlo/water.png</file>
         <file>images/pocisk/dol.png</file>
         <file>images/pocisk/gora.png</file>
         <file>images/pocisk/lewo.png</file>
         <file>images/pocisk/prawo.png</file>
-        <file>images/tlo/wall.png</file>
-        <file>images/enemy/enemy_left.png</file>
-        <file>images/enemy/enemy_right.png</file>
-        <file>images/enemy/enemy_up.png</file>
-        <file>images/enemy/enemy_down.png</file>
-        <file>images/tlo/floor.jpg</file>
-        <file>images/tlo/bg8.jpg</file>
-        <file>images/tlo/floor2.jpg</file>
         <file>images/gracz/gracz_dol.png</file>
         <file>images/gracz/gracz_lewo.png</file>
         <file>images/gracz/gracz_prawo.png</file>
         <file>images/gracz/gracz_up.png</file>
-        <file>images/tlo/change.png</file>
-        <file>images/tlo/ice.png</file>
-        <file>images/tlo/tree.png</file>
-        <file>images/tlo/water.png</file>
-        <file>images/tlo/menu2.png</file>
-        <file>images/tlo/bg9.jpg</file>
-        <file>images/tlo/brick.png</file>
-        <file>images/tlo/brick_lefthit.png</file>
-        <file>images/tlo/brick-downhit.png</file>
-        <file>images/tlo/brick-righthit.png</file>
-        <file>images/tlo/brickuphit.png</file>
-        <file>images/tlo/brick-corner.png</file>
+        <file>images/enemy/enemy_down.png</file>
+        <file>images/enemy/enemy_left.png</file>
+        <file>images/enemy/enemy_right.png</file>
+        <file>images/enemy/enemy_up.png</file>
+        <file>images/tlo/rem.png</file>
     </qresource>
 </RCC>

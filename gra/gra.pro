@@ -35,7 +35,8 @@ SOURCES += main.cpp \
     level2.cpp \
     brick_corner.cpp \
     enemy_fast.cpp \
-    panzer.cpp
+    panzer.cpp \
+    remaining.cpp
 
 HEADERS  += \
     bullet.h \
@@ -59,7 +60,8 @@ HEADERS  += \
     level2.h \
     brick_corner.h \
     enemy_fast.h \
-    panzer.h
+    panzer.h \
+    remaining.h
 
 FORMS    +=
 

@@ -84,8 +84,9 @@ void Bullet::ruch1()
                     delete this;
                     pociski_gracz=pociski_gracz-1;
                     game->enemies -= 1;
+                    game->score += 200;
                     qDebug()<<"Enemies = "<<game->enemies;
-                    if(game->enemies == 0)
+                    if(game->enemies == 0 && game->total==0)
                     {
                         Level2 * level2 = new Level2();
                     }
@@ -177,7 +178,7 @@ void Bullet::ruch2()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje2[i])) == typeid(Enemy) || typeid(*(kolizje2[i])) == typeid(Enemy_fast) || typeid(*(kolizje2[i])) == typeid(Panzer))
+            else if(typeid(*(kolizje2[i])) == typeid(Enemy) || typeid(*(kolizje2[i])) == typeid(Enemy_fast))
             {
                     scene()->removeItem(kolizje2[i]);
                     scene()->removeItem(this);
@@ -185,8 +186,9 @@ void Bullet::ruch2()
                     delete this;
                     pociski_gracz=pociski_gracz-1;
                     game->enemies -= 1;
+                    game->score += 200;
                     qDebug()<<"Enemies = "<<game->enemies;
-                    if(game->enemies == 0)
+                    if(game->enemies == 0 && game->total==0)
                     {
                         Level2 * level2 = new Level2();
                     }
@@ -280,7 +282,7 @@ void Bullet::ruch3()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje3[i])) == typeid(Enemy) || typeid(*(kolizje3[i])) == typeid(Enemy_fast) || typeid(*(kolizje3[i])) == typeid(Panzer))
+            else if(typeid(*(kolizje3[i])) == typeid(Enemy) || typeid(*(kolizje3[i])) == typeid(Enemy_fast))
             {
                     scene()->removeItem(kolizje3[i]);
                     scene()->removeItem(this);
@@ -288,8 +290,9 @@ void Bullet::ruch3()
                     delete this;
                     pociski_gracz=pociski_gracz-1;
                     game->enemies -= 1;
+                    game->score += 200;
                     qDebug()<<"Enemies = "<<game->enemies;
-                    if(game->enemies == 0)
+                    if(game->enemies == 0 && game->total==0)
                     {
                         Level2 * level2 = new Level2();
                     }
@@ -383,7 +386,7 @@ void Bullet::ruch4()
                     pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje4[i])) == typeid(Enemy) || typeid(*(kolizje4[i])) == typeid(Enemy_fast) || typeid(*(kolizje4[i])) == typeid(Panzer))
+            else if(typeid(*(kolizje4[i])) == typeid(Enemy) || typeid(*(kolizje4[i])) == typeid(Enemy_fast))
             {
                     scene()->removeItem(kolizje4[i]);
                     scene()->removeItem(this);
@@ -391,8 +394,9 @@ void Bullet::ruch4()
                     delete this;
                     pociski_gracz=pociski_gracz-1;
                     game->enemies -= 1;
+                    game->score += 200;
                     qDebug()<<"Enemies = "<<game->enemies;
-                    if(game->enemies == 0)
+                    if(game->enemies == 0 && game->total==0)
                     {
                         Level2 * level2 = new Level2();
                     }

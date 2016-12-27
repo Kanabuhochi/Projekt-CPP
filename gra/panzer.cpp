@@ -49,7 +49,6 @@ void Panzer::str()
     {
        // if (pociski_enemy==0)
       //  {
-            qDebug()<<"SHOT";
           //  pociski_enemy=pociski_enemy+1;
             Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()-7,y()-20);
@@ -67,7 +66,6 @@ void Panzer::str()
     {
       //  if(pociski_enemy==0)
      //   {
-            qDebug()<<"SHOT";
      //       pociski_enemy=pociski_enemy+1;
             Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()+20,y()-7);
@@ -85,7 +83,6 @@ void Panzer::str()
     {
     //    if(pociski_enemy==0)
     //    {
-            qDebug()<<"SHOT";
      //       pociski_enemy=pociski_enemy+1;
             Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()-7,y()+20);
@@ -102,7 +99,6 @@ void Panzer::str()
     {
    //     if(pociski_enemy==0)
      //   {
-            qDebug()<<"SHOT";
      //       pociski_enemy=pociski_enemy+1;
             Bullet_enemy * bullet_enemy = new Bullet_enemy(zwrot1);//,pociski_enemy);
             bullet_enemy->setPos(x()-20,y()-7);
@@ -191,7 +187,7 @@ void Panzer::ruch1()//gora
                 pociski_gracz=pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
-                if(game->enemies == 0)
+                if(game->enemies == 0 && game->total==0)
                 {
                     Level2 * level2 = new Level2();
                 }
@@ -251,7 +247,7 @@ void Panzer::ruch2()//prawo
                 pociski_gracz=pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
-                if(game->enemies == 0)
+                if(game->enemies == 0 && game->total==0)
                 {
                     Level2 * level2 = new Level2();
                 }
@@ -311,7 +307,7 @@ void Panzer::ruch3()//dol
                 pociski_gracz=pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
-                if(game->enemies == 0)
+                if(game->enemies == 0 && game->total==0)
                 {
                     Level2 * level2 = new Level2();
                 }
@@ -372,7 +368,7 @@ void Panzer::ruch4()//lewo
                 pociski_gracz=pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
-                if(game->enemies == 0)
+                if(game->enemies == 0 && game->total==0)
                 {
                     Level2 * level2 = new Level2();
                 }

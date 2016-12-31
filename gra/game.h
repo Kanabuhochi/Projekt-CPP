@@ -41,8 +41,11 @@ public:
     int move = 0;
     int score = 0;
     int total = 20;
+    int stage = 1;
+    int players = 0;
     void menu();
     void play();
+
     QList<Remaining *> remains;
 
 

@@ -25,5 +25,11 @@
         <file>images/enemy/enemy_right.png</file>
         <file>images/enemy/enemy_up.png</file>
         <file>images/tlo/rem.png</file>
+        <file>images/tlo/floor.jpg</file>
+        <file>images/tlo/anim.png</file>
+        <file>images/tlo/change.png</file>
+    </qresource>
+    <qresource prefix="/levels">
+        <file>levels/level1.txt</file>
     </qresource>
 </RCC>

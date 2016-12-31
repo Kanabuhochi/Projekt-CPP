@@ -17,7 +17,6 @@ public:
     int health = 3;
     int zwrot1 = 3;
 
-
 public slots:
     void move();
     void str();

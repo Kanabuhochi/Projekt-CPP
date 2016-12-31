@@ -7,8 +7,6 @@
 #include <bullet.h>
 #include <QGraphicsScene>
 
-extern int zwrot;
-extern int pociski_gracz;
 
 
 Brick::Brick(QGraphicsItem *parent): QGraphicsPixmapItem(parent)

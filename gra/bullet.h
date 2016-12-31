@@ -16,7 +16,7 @@
 #include <typeinfo>
 #include <qdebug.h>
 #include <level2.h>
-
+#include "player.h"
 
 
 

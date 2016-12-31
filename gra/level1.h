@@ -12,12 +12,16 @@
 #include <QTimer>
 #include <time.h>
 #include <stdlib.h>
+#include <QChar>
+#include <QTextStream>
+#include <QFile>
 
 
 class Level1
 {
 public:
     Level1();
+    void keyPressEvent(QKeyEvent * event);
     ~Level1();
 };
 

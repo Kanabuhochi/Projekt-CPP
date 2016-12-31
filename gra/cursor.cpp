@@ -5,6 +5,7 @@
 #include "game.h"
 #include "level1.h"
 #include "level2.h"
+#include "nextlevel.h"
 
 //extern Menu * menu;
 extern Game * game;
@@ -44,7 +45,8 @@ void Cursor::keyPressEvent(QKeyEvent *event)
     {
         if(game->move == 0)
         {
-            Level1 * level1 = new Level1();
+            //Level1 * level1 = new Level1();
+            Nextlevel * nextlevel = new Nextlevel();
         }
         else if(game->move == 1)
         {

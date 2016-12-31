@@ -14,8 +14,8 @@
 #include <time.h>
 #include <qdebug.h>
 //extern int zwrot1;
-extern int pociski_gracz;
 extern Game * game;
+extern Player * player;
 
 Panzer::Panzer(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
@@ -173,7 +173,7 @@ void Panzer::ruch1()//gora
                 qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 health -= 1;
                 return;
             }
@@ -184,7 +184,7 @@ void Panzer::ruch1()//gora
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
@@ -233,7 +233,7 @@ void Panzer::ruch2()//prawo
                 qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 health -= 1;
                 return;
             }
@@ -244,7 +244,7 @@ void Panzer::ruch2()//prawo
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
@@ -255,7 +255,7 @@ void Panzer::ruch2()//prawo
             }
 
         }
-        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner) || typeid(*(kolizje_sciana[i])) == typeid(Water))
         {
                 setPos(x()-4,y());
                 zwrot1= rand() % 4 + 1;
@@ -293,7 +293,7 @@ void Panzer::ruch3()//dol
                 qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 health -= 1;
                 return;
             }
@@ -304,7 +304,7 @@ void Panzer::ruch3()//dol
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
@@ -315,7 +315,7 @@ void Panzer::ruch3()//dol
             }
 
         }
-        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner) || typeid(*(kolizje_sciana[i])) == typeid(Water))
         {
                 setPos(x(),y()-4);
                 zwrot1= rand() % 4 + 1;
@@ -354,7 +354,7 @@ void Panzer::ruch4()//lewo
                 qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 health -= 1;
                 return;
             }
@@ -365,7 +365,7 @@ void Panzer::ruch4()//lewo
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                pociski_gracz=pociski_gracz-1;
+                player->pociski_gracz=player->pociski_gracz-1;
                 game->enemies -= 1;
                 qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
@@ -376,7 +376,7 @@ void Panzer::ruch4()//lewo
             }
 
         }
-        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner) || typeid(*(kolizje_sciana[i])) == typeid(Water))
         {
                 setPos(x()+4,y());
                 zwrot1= rand() % 4 + 1;

@@ -196,7 +196,7 @@ void Enemy::ruch2()//prawo
                 setPos(x()-4,y());
                 zwrot1= rand() % 4 + 1;
         }
-        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner) || typeid(*(kolizje_sciana[i])) == typeid(Water))
         {
                 setPos(x()-4,y());
                 zwrot1= rand() % 4 + 1;
@@ -227,7 +227,7 @@ void Enemy::ruch3()//dol
                 setPos(x(),y()-4);
                 zwrot1= rand() % 4 + 1;
         }
-        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner) || typeid(*(kolizje_sciana[i])) == typeid(Water))
         {
                 setPos(x(),y()-4);
                 zwrot1= rand() % 4 + 1;
@@ -259,7 +259,7 @@ void Enemy::ruch4()//lewo
                 setPos(x()+4,y());
                 zwrot1= rand() % 4 + 1;
         }
-        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick))
+        else if(typeid(*(kolizje_sciana[i])) == typeid(Brick) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitleft) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitright) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitup) || typeid(*(kolizje_sciana[i])) == typeid(Brickhitdown) || typeid(*(kolizje_sciana[i])) == typeid(Brick_corner) || typeid(*(kolizje_sciana[i])) == typeid(Water))
         {
                 setPos(x()+4,y());
                 zwrot1= rand() % 4 + 1;

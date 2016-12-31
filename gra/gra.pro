@@ -20,7 +20,6 @@ SOURCES += main.cpp \
     wall.cpp \
     enemy.cpp \
     bullet_enemy.cpp \
-    change.cpp \
     tree.cpp \
     water.cpp \
     ice.cpp \
@@ -36,7 +35,8 @@ SOURCES += main.cpp \
     brick_corner.cpp \
     enemy_fast.cpp \
     panzer.cpp \
-    remaining.cpp
+    remaining.cpp \
+    nextlevel.cpp
 
 HEADERS  += \
     bullet.h \
@@ -45,7 +45,6 @@ HEADERS  += \
     wall.h \
     enemy.h \
     bullet_enemy.h \
-    change.h \
     tree.h \
     water.h \
     ice.h \
@@ -61,7 +60,8 @@ HEADERS  += \
     brick_corner.h \
     enemy_fast.h \
     panzer.h \
-    remaining.h
+    remaining.h \
+    nextlevel.h
 
 FORMS    +=
 

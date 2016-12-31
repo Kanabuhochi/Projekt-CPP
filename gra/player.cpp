@@ -14,9 +14,6 @@
 #include "brickhitup.h"
 #include "brick_corner.h"
 #include <Qdebug.h>
-
-extern int zwrot=1;
-extern int pociski_gracz=0;
 //extern int zwrot1=3;
 //extern int pociski_enemy=0;
 

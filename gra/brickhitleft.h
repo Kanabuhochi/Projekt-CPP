@@ -12,6 +12,7 @@ class Brickhitleft: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Brickhitleft(QGraphicsItem * parent=0);
+    ~Brickhitleft();
 
 };
 

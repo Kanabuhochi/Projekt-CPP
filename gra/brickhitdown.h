@@ -11,6 +11,7 @@ class Brickhitdown: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Brickhitdown(QGraphicsItem * parent=0);
+    ~Brickhitdown();
 };
 
 

@@ -15,7 +15,7 @@
 #include <qdebug.h>
 //extern int zwrot1;
 extern Game * game;
-extern Player * player;
+extern Bullet * bullet;
 
 Panzer::Panzer(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
@@ -54,7 +54,7 @@ void Panzer::str()
             bullet_enemy->setPos(x()-7,y()-20);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
 
      //   }
      //   else if(pociski_enemy!=0)
@@ -71,7 +71,7 @@ void Panzer::str()
             bullet_enemy->setPos(x()+20,y()-7);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
 
      //   }
      //   else if(pociski_enemy!=0)
@@ -88,7 +88,7 @@ void Panzer::str()
             bullet_enemy->setPos(x()-7,y()+20);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
        // }
      //   else if(pociski_enemy!=0)
      //   {
@@ -104,7 +104,7 @@ void Panzer::str()
             bullet_enemy->setPos(x()-20,y()-7);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
        // }
     //    else if(pociski_enemy!=0)
    //     {
@@ -170,26 +170,28 @@ void Panzer::ruch1()//gora
         {
             if(health > 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                player->pociski_gracz=player->pociski_gracz-1;
+                game->pociski_gracz=game->pociski_gracz-1;
                 health -= 1;
                 return;
             }
             else if(health == 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                player->pociski_gracz=player->pociski_gracz-1;
+                game->pociski_gracz= game->pociski_gracz-1;
                 game->enemies -= 1;
-                qDebug()<<"Enemies = "<<game->enemies;
+                //qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
                 {
-                    Level2 * level2 = new Level2();
+                    game->stage += 1;
+                    Nextlevel * nextlevel = new Nextlevel();
+
                 }
                 return;
             }
@@ -230,26 +232,27 @@ void Panzer::ruch2()//prawo
         {
             if(health > 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                player->pociski_gracz=player->pociski_gracz-1;
+                 game->pociski_gracz= game->pociski_gracz-1;
                 health -= 1;
                 return;
             }
             else if(health == 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                player->pociski_gracz=player->pociski_gracz-1;
+                game->pociski_gracz= game->pociski_gracz-1;
                 game->enemies -= 1;
-                qDebug()<<"Enemies = "<<game->enemies;
+                //qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
                 {
-                    Level2 * level2 = new Level2();
+                    game->stage += 1;
+                    Nextlevel * nextlevel = new Nextlevel();
                 }
                 return;
             }
@@ -290,26 +293,28 @@ void Panzer::ruch3()//dol
         {
             if(health > 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                player->pociski_gracz=player->pociski_gracz-1;
+                game->pociski_gracz= game->pociski_gracz-1;
                 health -= 1;
                 return;
             }
             else if(health == 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                player->pociski_gracz=player->pociski_gracz-1;
+                 game->pociski_gracz= game->pociski_gracz-1;
                 game->enemies -= 1;
-                qDebug()<<"Enemies = "<<game->enemies;
+                //qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
                 {
-                    Level2 * level2 = new Level2();
+                    game->stage += 1;
+
+                    Nextlevel * nextlevel = new Nextlevel();
                 }
                 return;
             }
@@ -351,26 +356,27 @@ void Panzer::ruch4()//lewo
         {
             if(health > 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
-                player->pociski_gracz=player->pociski_gracz-1;
+                 game->pociski_gracz=game->pociski_gracz-1;
                 health -= 1;
                 return;
             }
             else if(health == 0)
             {
-                qDebug()<<"PANZER";
+                //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
                 delete this;
-                player->pociski_gracz=player->pociski_gracz-1;
+                 game->pociski_gracz= game->pociski_gracz-1;
                 game->enemies -= 1;
-                qDebug()<<"Enemies = "<<game->enemies;
+                //qDebug()<<"Enemies = "<<game->enemies;
                 if(game->enemies == 0 && game->total==0)
                 {
-                    Level2 * level2 = new Level2();
+                    game->stage += 1;
+                    Nextlevel * nextlevel = new Nextlevel();
                 }
                 return;
             }

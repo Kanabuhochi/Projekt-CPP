@@ -19,11 +19,13 @@ public:
     QGraphicsPixmapItem * top;
     QGraphicsPixmapItem * bottom;
     QGraphicsTextItem * stage;
+    ~Nextlevel();
 
 
 public slots:
     void anim();
     void level();
+
 };
 
 

@@ -11,6 +11,7 @@ class Brick: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Brick(QGraphicsItem * parent=0);
+    ~Brick();
     void zburz();
 };
 

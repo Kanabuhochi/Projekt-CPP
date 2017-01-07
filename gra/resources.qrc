@@ -31,5 +31,8 @@
     </qresource>
     <qresource prefix="/levels">
         <file>levels/level1.txt</file>
+        <file>levels/editor.txt</file>
+        <file>levels/level2.txt</file>
+        <file>levels/level3.txt</file>
     </qresource>
 </RCC>

@@ -53,7 +53,7 @@ void Enemy::str()
             bullet_enemy->setPos(x()-7,y()-20);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
 
      //   }
      //   else if(pociski_enemy!=0)
@@ -70,7 +70,7 @@ void Enemy::str()
             bullet_enemy->setPos(x()+20,y()-7);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
 
      //   }
      //   else if(pociski_enemy!=0)
@@ -87,7 +87,7 @@ void Enemy::str()
             bullet_enemy->setPos(x()-7,y()+20);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy);
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
        // }
      //   else if(pociski_enemy!=0)
      //   {
@@ -103,7 +103,7 @@ void Enemy::str()
             bullet_enemy->setPos(x()-20,y()-7);
             bullet_enemy->setScale(0.7);
             scene()->addItem(bullet_enemy); 
-            //qDebug()<<"Pociski="<<pociski_enemy;
+            ////qDebug()<<"Pociski="<<pociski_enemy;
        // }
     //    else if(pociski_enemy!=0)
    //     {

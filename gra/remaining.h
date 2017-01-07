@@ -11,6 +11,7 @@ class Remaining: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Remaining(QGraphicsItem * parent=0);
+    ~Remaining();
 };
 
 #endif // REMAINING_H

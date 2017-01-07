@@ -4,16 +4,16 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QTimer>
+#include "bullet.h"
 
 class Player: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     Player(QGraphicsItem * parent=0);
+    ~Player();
     int zwrot = 1;
-    int pociski_gracz = 0;
     void keyPressEvent(QKeyEvent *event);
-public slots:
 };
 
 #endif // PLAYER_H

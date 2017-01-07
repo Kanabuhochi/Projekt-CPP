@@ -12,6 +12,7 @@
 #include "wall.h"
 #include <QTimer>
 #include <QGraphicsScene>
+#include <QSignalMapper>
 #include <QList>
 #include <typeinfo>
 #include <qdebug.h>
@@ -25,7 +26,8 @@ class Bullet: public QObject,public QGraphicsPixmapItem
 
     Q_OBJECT
 public:
-    Bullet(QGraphicsItem * parent=0);
+    Bullet(int zwrot);
+
 public slots:
     //void move();
 

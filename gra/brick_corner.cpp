@@ -11,3 +11,8 @@ Brick_corner::Brick_corner(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/images/images/tlo/brick-corner.png"));
 }
+
+Brick_corner::~Brick_corner()
+{
+    qDebug()<<" CORNER DELETED";
+}

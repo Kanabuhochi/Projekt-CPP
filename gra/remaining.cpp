@@ -7,3 +7,8 @@ Remaining::Remaining(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":/images/images/tlo/rem.png"));
 
 }
+
+Remaining::~Remaining()
+{
+    qDebug()<<"REMAINING DELETED";
+}

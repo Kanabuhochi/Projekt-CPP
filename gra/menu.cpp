@@ -7,7 +7,7 @@
 
 Menu::Menu()
 {
-    scene = new QGraphicsScene();
+  /*  scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
     setBackgroundBrush(QBrush(QImage(":/images/images/tlo/menu2.png")));
     setScene(scene);
@@ -19,6 +19,6 @@ Menu::Menu()
     cursor->setPos(235,290);
     cursor->setFlag(QGraphicsItem::ItemIsFocusable);
     cursor->setFocus();
-    scene->addItem(cursor);
+    scene->addItem(cursor);*/
 }
 

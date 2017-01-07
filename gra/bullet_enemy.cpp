@@ -107,7 +107,7 @@ void Bullet_enemy::ruch11()
             {
                     int x = kolizje1[i]->pos().x();
                     int y = kolizje1[i]->pos().y();
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brickhitdown *brickhitdown = new Brickhitdown();
                     brickhitdown->setPos(x,y);
                     game->scene->addItem(brickhitdown);
@@ -132,7 +132,7 @@ void Bullet_enemy::ruch11()
             {
                 int x = kolizje1[i]->pos().x();
                 int y = kolizje1[i]->pos().y();
-                qDebug()<<"x"<<x<<"y"<<y;
+                //qDebug<<"x"<<x<<"y"<<y;
                 Brick_corner *brick_corner = new Brick_corner();
                 brick_corner->setPos(x,y);
                 game->scene->addItem(brick_corner);
@@ -148,7 +148,7 @@ void Bullet_enemy::ruch11()
             {
                 int x = kolizje1[i]->pos().x();
                 int y = kolizje1[i]->pos().y();
-                qDebug()<<"x"<<x<<"y"<<y;
+                //qDebug<<"x"<<x<<"y"<<y;
                 Brick_corner *brick_corner = new Brick_corner();
                 brick_corner->setPos(x,y);
                 game->scene->addItem(brick_corner);
@@ -210,7 +210,7 @@ void Bullet_enemy::ruch22()
             {
                     int x = kolizje2[i]->pos().x()+20;
                     int y = kolizje2[i]->pos().y();
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brickhitleft *brickhitleft = new Brickhitleft();
                     brickhitleft->setPos(x,y);
                     game->scene->addItem(brickhitleft);
@@ -226,7 +226,7 @@ void Bullet_enemy::ruch22()
             {
                     int x = kolizje2[i]->pos().x()+20;
                     int y = kolizje2[i]->pos().y();
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brick_corner *brick_corner = new Brick_corner();
                     brick_corner->setPos(x,y);
                     game->scene->addItem(brick_corner);
@@ -242,7 +242,7 @@ void Bullet_enemy::ruch22()
             {
                     int x = kolizje2[i]->pos().x()+20;
                     int y = kolizje2[i]->pos().y();
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brick_corner *brick_corner = new Brick_corner();
                     brick_corner->setPos(x,y);
                     game->scene->addItem(brick_corner);
@@ -313,7 +313,7 @@ void Bullet_enemy::ruch33()
             {
                     int x = kolizje3[i]->pos().x();
                     int y = kolizje3[i]->pos().y()+20;
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brickhitup *brickhitup = new Brickhitup();
                     brickhitup->setPos(x,y);
                     game->scene->addItem(brickhitup);
@@ -338,7 +338,7 @@ void Bullet_enemy::ruch33()
             {
                     int x = kolizje3[i]->pos().x();
                     int y = kolizje3[i]->pos().y()+20;
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brick_corner *brick_corner = new Brick_corner();
                     brick_corner->setPos(x,y);
                     game->scene->addItem(brick_corner);
@@ -354,7 +354,7 @@ void Bullet_enemy::ruch33()
             {
                     int x = kolizje3[i]->pos().x();
                     int y = kolizje3[i]->pos().y()+20;
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brick_corner *brick_corner = new Brick_corner();
                     brick_corner->setPos(x,y);
                     game->scene->addItem(brick_corner);
@@ -416,7 +416,7 @@ void Bullet_enemy::ruch44()
             {
                     int x = kolizje4[i]->pos().x();
                     int y = kolizje4[i]->pos().y();
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brickhitright *brickhitright = new Brickhitright();
                     brickhitright->setPos(x,y);
                     game->scene->addItem(brickhitright);
@@ -432,7 +432,7 @@ void Bullet_enemy::ruch44()
             {
                     int x = kolizje4[i]->pos().x();
                     int y = kolizje4[i]->pos().y();
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brick_corner *brick_corner = new Brick_corner();
                     brick_corner->setPos(x,y);
                     game->scene->addItem(brick_corner);
@@ -448,7 +448,7 @@ void Bullet_enemy::ruch44()
             {
                     int x = kolizje4[i]->pos().x();
                     int y = kolizje4[i]->pos().y();
-                    qDebug()<<"x"<<x<<"y"<<y;
+                    //qDebug<<"x"<<x<<"y"<<y;
                     Brick_corner *brick_corner = new Brick_corner();
                     brick_corner->setPos(x,y);
                     game->scene->addItem(brick_corner);

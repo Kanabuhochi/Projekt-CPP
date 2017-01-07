@@ -59,8 +59,8 @@ void Game::spawn()
             scene->addItem(enemy);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned enemy"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned enemy"<<enemies;
 
         }
         else if(x==2)
@@ -71,8 +71,8 @@ void Game::spawn()
             scene->addItem(enemy);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned enemy"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned enemy"<<enemies;
         }
         else if(x==3)
         {
@@ -82,8 +82,8 @@ void Game::spawn()
             scene->addItem(enemy);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned enemy"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned enemy"<<enemies;
         }
         scene->removeItem(remains[remains.size() - 1]);
         delete (remains.takeAt(remains.size() - 1));
@@ -99,8 +99,8 @@ void Game::spawn()
             scene->addItem(enemy_fast);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned fast"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned fast"<<enemies;
         }
         else if(x==2)
         {
@@ -110,8 +110,8 @@ void Game::spawn()
             scene->addItem(enemy_fast);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned fast"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned fast"<<enemies;
         }
         else if(x==3)
         {
@@ -121,8 +121,8 @@ void Game::spawn()
             scene->addItem(enemy_fast);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned fast"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned fast"<<enemies;
         }
         scene->removeItem(remains[remains.size() - 1]);
         delete (remains.takeAt(remains.size() - 1));
@@ -138,8 +138,8 @@ void Game::spawn()
             scene->addItem(panzer);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned panzer"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned panzer"<<enemies;
         }
         else if(x==2)
         {
@@ -149,8 +149,8 @@ void Game::spawn()
             scene->addItem(panzer);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned panzer"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned panzer"<<enemies;
         }
         else if(x==3)
         {
@@ -160,8 +160,8 @@ void Game::spawn()
             scene->addItem(panzer);
             enemies=enemies+1;
             total -= 1;
-            qDebug()<<"Enemies ="<<enemies;
-            qDebug()<<"Spawned panzer"<<enemies;
+            //qDebug()<<"Enemies ="<<enemies;
+            //qDebug()<<"Spawned panzer"<<enemies;
         }
 
         scene->removeItem(remains[remains.size() - 1]);
@@ -174,17 +174,17 @@ void Game::spawn()
 }
 void Game::check()
 {
-    qDebug()<<"Score = "<<score;
-    qDebug()<<"Remainig = "<<total;
+    //qDebug()<<"Score = "<<score;
+    //qDebug()<<"Remainig = "<<total;
     if(enemies>=4)
     {
         timer5->stop();
-        qDebug()<<"Spawning stopped";
+        //qDebug()<<"Spawning stopped";
     }
     else if(enemies<4)
     {
         timer5->start(3000);
-        qDebug()<<"Keep spawning";
+        //qDebug()<<"Keep spawning";
     }
     if (total == 0)
     {

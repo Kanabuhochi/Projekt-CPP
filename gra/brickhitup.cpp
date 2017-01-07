@@ -13,4 +13,9 @@ Brickhitup::Brickhitup(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":/images/images/tlo/brickuphit.png"));
 }
 
+Brickhitup::~Brickhitup()
+{
+    qDebug()<<" UPBRICK DELETED";
+}
+
 

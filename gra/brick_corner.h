@@ -11,6 +11,8 @@ class Brick_corner: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
    Brick_corner(QGraphicsItem * parent=0);
+   ~Brick_corner();
+
 };
 
 

@@ -43,9 +43,10 @@ public:
     int total = 20;
     int stage = 1;
     int players = 0;
+    int pociski_gracz = 0;
     void menu();
     void play();
-
+    QVector<QObject*> klocki;
     QList<Remaining *> remains;
 
 

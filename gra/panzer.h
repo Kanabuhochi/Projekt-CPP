@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QTimer>
+#include "nextlevel.h"
 
 class Panzer: public QObject, public QGraphicsPixmapItem
 {

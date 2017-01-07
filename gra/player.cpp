@@ -14,17 +14,16 @@
 #include "brickhitup.h"
 #include "brick_corner.h"
 #include <Qdebug.h>
-//extern int zwrot1=3;
 //extern int pociski_enemy=0;
-
-
+extern Game * game;
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/images/images/gracz/gracz_up.png"));
 }
+
+
 void Player::keyPressEvent(QKeyEvent *event)
 {
-
     if(event->key() == Qt::Key_Left)
     {
         if (pos().x() > 141)
@@ -234,63 +233,69 @@ void Player::keyPressEvent(QKeyEvent *event)
     {
         if(zwrot == 1)
         {
-            if (pociski_gracz==0)
+
+            if (game->pociski_gracz==0)
             {
-                Bullet * bullet = new Bullet();
+                Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()-7,y()-20);
                 bullet->setScale(0.7);
-                scene()->addItem(bullet);
-                pociski_gracz=pociski_gracz+1;
+                game->scene->addItem(bullet);
+                game->pociski_gracz=game->pociski_gracz+1;
             }
-            else if(pociski_gracz!=0)
+            else if(game->pociski_gracz!=0)
             {
 
             }
          }
         else if(zwrot == 2)
         {
-            if(pociski_gracz==0)
+            if(game->pociski_gracz==0)
             {
-                Bullet * bullet = new Bullet();
+                Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()+20,y()-7);
                 bullet->setScale(0.7);
-                scene()->addItem(bullet);
-                pociski_gracz=pociski_gracz+1;
+                game->scene->addItem(bullet);
+                game->pociski_gracz=game->pociski_gracz+1;
             }
-            else if(pociski_gracz!=0)
+            else if(game->pociski_gracz!=0)
             {
 
             }
         }
         else if(zwrot == 3)
         {
-            if(pociski_gracz==0)
+            if(game->pociski_gracz==0)
             {
-                Bullet * bullet = new Bullet();
+                Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()-7,y()+20);
                 bullet->setScale(0.7);
-                scene()->addItem(bullet);
-                pociski_gracz=pociski_gracz+1;
+                game->scene->addItem(bullet);
+                game->pociski_gracz=game->pociski_gracz+1;
             }
-            else if(pociski_gracz!=0)
+            else if(game->pociski_gracz!=0)
             {
 
             }
         }
         else if(zwrot == 4)
         {
-            if(pociski_gracz==0)
+            if(game->pociski_gracz==0)
             {
-                Bullet * bullet = new Bullet();
+                Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()-20,y()-7);
                 bullet->setScale(0.7);
-                scene()->addItem(bullet);
-                pociski_gracz=pociski_gracz+1;
+                game->scene->addItem(bullet);
+                game->pociski_gracz=game->pociski_gracz+1;
             }
-            else if(pociski_gracz!=0)
+            else if(game->pociski_gracz!=0)
             {
 
             }
         }
     }
+}
+
+Player::~Player()
+{
+    qDebug()<<" PLAYER DELETED";
 }

@@ -4,6 +4,7 @@
 #include "game.h"
 #include "player.h"
 #include "ice.h"
+#include "mapeditor.h"
 #include "brick.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
@@ -21,8 +22,9 @@ class Level1
 {
 public:
     Level1();
-    void keyPressEvent(QKeyEvent * event);
     ~Level1();
+    void keyPressEvent(QKeyEvent * event);
+
 };
 
 #endif // LEVEL1_H

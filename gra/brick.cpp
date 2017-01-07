@@ -15,6 +15,7 @@ Brick::Brick(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":/images/images/tlo/brick.png"));
 }
 
+
 void Brick::zburz()
 {
     setPixmap(QPixmap(":/images/images/tlo/brick-downhit.png"));
@@ -22,4 +23,8 @@ void Brick::zburz()
 }
 
 
+Brick::~Brick()
+{
+    qDebug()<<" BRICK DELETED";
+}
 

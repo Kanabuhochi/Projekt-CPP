@@ -13,5 +13,10 @@ Brickhitdown::Brickhitdown(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":/images/images/tlo/brick-downhit.png"));
 }
 
+Brickhitdown::~Brickhitdown()
+{
+    qDebug()<<" DOWNBRICK DELETED";
+}
+
 
 

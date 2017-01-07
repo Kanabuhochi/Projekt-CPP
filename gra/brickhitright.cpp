@@ -13,5 +13,10 @@ Brickhitright::Brickhitright(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":/images/images/tlo/brick-righthit.png"));
 }
 
+Brickhitright::~Brickhitright()
+{
+    qDebug()<<" RIGHTBRICK DELETED";
+}
+
 
 

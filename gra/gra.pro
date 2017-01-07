@@ -23,7 +23,6 @@ SOURCES += main.cpp \
     tree.cpp \
     water.cpp \
     ice.cpp \
-    menu.cpp \
     cursor.cpp \
     level1.cpp \
     brick.cpp \
@@ -31,12 +30,12 @@ SOURCES += main.cpp \
     brickhitup.cpp \
     brickhitleft.cpp \
     brickhitright.cpp \
-    level2.cpp \
     brick_corner.cpp \
     enemy_fast.cpp \
     panzer.cpp \
     remaining.cpp \
-    nextlevel.cpp
+    nextlevel.cpp \
+    mapeditor.cpp
 
 HEADERS  += \
     bullet.h \
@@ -48,7 +47,6 @@ HEADERS  += \
     tree.h \
     water.h \
     ice.h \
-    menu.h \
     cursor.h \
     level1.h \
     brick.h \
@@ -56,12 +54,12 @@ HEADERS  += \
     brickhitup.h \
     brickhitleft.h \
     brickhitright.h \
-    level2.h \
     brick_corner.h \
     enemy_fast.h \
     panzer.h \
     remaining.h \
-    nextlevel.h
+    nextlevel.h \
+    mapeditor.h
 
 FORMS    +=
 

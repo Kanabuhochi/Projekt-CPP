@@ -13,5 +13,10 @@ Brickhitleft::Brickhitleft(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(":/images/images/tlo/brick_lefthit.png"));
 }
 
+Brickhitleft::~Brickhitleft()
+{
+    qDebug()<<" LEFTBRICK DELETED";
+}
+
 
 

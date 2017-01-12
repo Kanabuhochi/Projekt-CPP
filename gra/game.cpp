@@ -47,10 +47,7 @@ void Game::menu()
     connect(timer2,SIGNAL(timeout()),this,SLOT(endscreen()));
     rst = new QTimer();
     connect(rst,SIGNAL(timeout()),this,SLOT(reset()));
-
-
-    scoring = new QTimer();
-    connect(scoring,SIGNAL(timeout()),this,SLOT(scores()));
+    score = 0;
     move = 0;
     cont = 1;
     setBackgroundBrush(QBrush(QImage(":/images/images/tlo/menu2.png")));
@@ -60,7 +57,6 @@ void Game::menu()
     cursor->setFlag(QGraphicsItem::ItemIsFocusable);
     scene->addItem(cursor);
     cursor->setFocus();
-
 }
 void Game::spawn()
 {
@@ -193,8 +189,6 @@ void Game::spawn()
 
         scene->removeItem(remains[remains.size() - 1]);
         delete (remains.takeAt(remains.size() - 1));
-
-
     }
 
 
@@ -224,6 +218,7 @@ void Game::play()
     checker = new QTimer();
     connect(timer5,SIGNAL(timeout()),this,SLOT(spawn()));
     connect(checker,SIGNAL(timeout()),this,SLOT(check()));
+    connect(scoring,SIGNAL(timeout()),this,SLOT(scores()));
     for(int h = 70; h <= 260; h += 20)
         for(int z = 710; z <= 730; z += 20)
         {
@@ -389,8 +384,6 @@ void Game::scores()
     {
        timer2->start(4000);
     }
-
-
 }
 
 void Game::next()

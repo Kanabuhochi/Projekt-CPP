@@ -36,6 +36,9 @@
     <qresource prefix="/levels">
         <file>levels/editor.txt</file>
         <file>levels/level1.txt</file>
+        <file>levels/level2.txt</file>
+        <file>levels/level3.txt</file>
+        <file>levels/level4.txt</file>
     </qresource>
     <qresource prefix="/exp">
         <file>images/explode/ex1.png</file>

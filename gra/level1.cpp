@@ -6,7 +6,7 @@ Level1::Level1()
     game->scene->clear();
     game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/bg9.jpg")));
     game->setScene(game->scene);
-    game->total = 20;
+    game->total = 1;
     game->enemies = 0;
     game->pociski_gracz = 0;
     if (game->stage == 0)
@@ -155,6 +155,10 @@ Level1::Level1()
         game->klocki.insert(0,r);
         r->setPos(420,500);
         game->scene->addItem(r);
+
+        game->scoring = new QTimer();
+
+
         game->show();
         game->play();
         delete this;

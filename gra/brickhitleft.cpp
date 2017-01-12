@@ -15,7 +15,7 @@ Brickhitleft::Brickhitleft(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
 Brickhitleft::~Brickhitleft()
 {
-    qDebug()<<" LEFTBRICK DELETED";
+
 }
 
 

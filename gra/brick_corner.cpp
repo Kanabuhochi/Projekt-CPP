@@ -14,5 +14,5 @@ Brick_corner::Brick_corner(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
 Brick_corner::~Brick_corner()
 {
-    qDebug()<<" CORNER DELETED";
+
 }

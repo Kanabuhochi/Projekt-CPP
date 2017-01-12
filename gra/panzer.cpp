@@ -12,6 +12,7 @@
 #include "change.h"
 #include "game.h"
 #include <time.h>
+#include "exp.h"
 #include <qdebug.h>
 //extern int zwrot1;
 extern Game * game;
@@ -20,7 +21,7 @@ extern Bullet * bullet;
 Panzer::Panzer(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
         srand (time(NULL));
-        int x = rand() % 5000 + 1500;
+        int x = rand() % 3000 + 1500;
         int y = rand() % 3000 + 1500;
         setPixmap(QPixmap(":/images/images/enemy/enemy_up.png"));
         timer = new QTimer();
@@ -29,7 +30,7 @@ Panzer::Panzer(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
        // QTimer * timer = new QTimer(this);
         connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-        timer->start(37);  //37
+        timer->start(30);  //37
 
        // QTimer * timer1 = new QTimer(this);
         connect(timer1,SIGNAL(timeout()),this,SLOT(change()));
@@ -170,6 +171,7 @@ void Panzer::ruch1()//gora
         {
             if(health > 0)
             {
+
                 //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
@@ -180,6 +182,13 @@ void Panzer::ruch1()//gora
             else if(health == 0)
             {
                 //qDebug()<<"PANZER";
+                Exp *exp = new Exp();
+                game->score += 500;
+                game->newscore += 500;
+                game->tank->play();
+                game->pancer += 1;
+                exp->setPos(pos().x(),pos().y());
+                game->scene->addItem(exp);
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
@@ -190,7 +199,7 @@ void Panzer::ruch1()//gora
                 if(game->enemies == 0 && game->total==0)
                 {
                     game->stage += 1;
-                    Nextlevel * nextlevel = new Nextlevel();
+                    game->scoring->start(3000);
 
                 }
                 return;
@@ -241,6 +250,13 @@ void Panzer::ruch2()//prawo
             }
             else if(health == 0)
             {
+                Exp *exp = new Exp();
+                exp->setPos(pos().x(),pos().y());
+                game->scene->addItem(exp);
+                game->score += 500;
+                game->newscore += 500;
+                game->tank->play();
+                game->pancer += 1;
                 //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
@@ -252,7 +268,7 @@ void Panzer::ruch2()//prawo
                 if(game->enemies == 0 && game->total==0)
                 {
                     game->stage += 1;
-                    Nextlevel * nextlevel = new Nextlevel();
+                    game->scoring->start(3000);
                 }
                 return;
             }
@@ -293,6 +309,7 @@ void Panzer::ruch3()//dol
         {
             if(health > 0)
             {
+
                 //qDebug()<<"PANZER";
                 scene()->removeItem(kolizje_sciana[i]);
                 delete kolizje_sciana[i];
@@ -302,7 +319,14 @@ void Panzer::ruch3()//dol
             }
             else if(health == 0)
             {
-                //qDebug()<<"PANZER";
+                Exp *exp = new Exp();
+                exp->setPos(pos().x(),pos().y());
+                game->scene->addItem(exp);
+                game->score += 500;
+                game->newscore += 500;
+                game->tank->play();
+                game->pancer += 1;
+
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
@@ -314,7 +338,7 @@ void Panzer::ruch3()//dol
                 {
                     game->stage += 1;
 
-                    Nextlevel * nextlevel = new Nextlevel();
+                    game->scoring->start(3000);
                 }
                 return;
             }
@@ -365,7 +389,12 @@ void Panzer::ruch4()//lewo
             }
             else if(health == 0)
             {
-                //qDebug()<<"PANZER";
+                Exp *exp = new Exp();
+                exp->setPos(pos().x(),pos().y());
+                game->scene->addItem(exp);
+                game->score += 500;
+                game->pancer += 1;
+                game->tank->play();
                 scene()->removeItem(kolizje_sciana[i]);
                 scene()->removeItem(this);
                 delete kolizje_sciana[i];
@@ -376,7 +405,7 @@ void Panzer::ruch4()//lewo
                 if(game->enemies == 0 && game->total==0)
                 {
                     game->stage += 1;
-                    Nextlevel * nextlevel = new Nextlevel();
+                    game->scoring->start(3000);
                 }
                 return;
             }
@@ -390,162 +419,3 @@ void Panzer::ruch4()//lewo
 
     }
 }
-/*void Enemy::keyPressEvent(QKeyEvent *event)
-{
-
-    if(event->key() == Qt::Key_A)
-    {
-        if (pos().x() > 48)
-        {
-            setPos(x()-3,y());
-            zwrot1 = 4;
-        }
-        setPixmap(QPixmap(":/images/images/enemy/enemy_left.png"));
-        QList<QGraphicsItem *> kolizje_sciana = collidingItems();
-        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
-        {
-
-            if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
-            {
-                    setPos(x()+4,y());
-            }
-            else if (pos().x() < 48)
-            {
-
-            }
-        }
-     }
-
-    else if(event->key() == Qt::Key_D)
-    {
-        if (pos().x() < 747)
-        {
-            setPos(x()+3,y());
-            zwrot1 = 2;
-        }
-        setPixmap(QPixmap(":/images/images/enemy/enemy_right.png"));
-        QList<QGraphicsItem *> kolizje_sciana = collidingItems();
-        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
-        {
-
-            if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
-            {
-                    setPos(x()-4,y());
-            }
-            else if (pos().x() > 747)
-            {
-
-            }
-        }
-     }
-
-    else if(event->key() == Qt::Key_W)
-    {
-        if (pos().y() > 21)
-        {
-            setPos(x(),y()-3);
-            zwrot1 = 1;
-        }
-        setPixmap(QPixmap(":/images/images/enemy/enemy_up.png"));
-        QList<QGraphicsItem *> kolizje_sciana = collidingItems();
-        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
-        {
-
-            if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
-            {
-                    setPos(x(),y()+4);
-            }
-            else if (pos().y() < 21)
-            {
-
-            }
-        }
-     }
-
-    else if(event->key() == Qt::Key_S)
-    {
-        if (pos().y() < 550)
-        {
-            setPos(x(),y()+3);
-            zwrot1 = 3;
-        }
-        setPixmap(QPixmap(":/images/images/enemy/enemy_down.png"));
-        QList<QGraphicsItem *> kolizje_sciana = collidingItems();
-        for(int i = 0,  n = kolizje_sciana.size(); i<n; i++)
-        {
-
-            if(typeid(*(kolizje_sciana[i])) == typeid(Wall))
-            {
-                    setPos(x(),y()-4);
-            }
-            else if (pos().y() > 550)
-            {
-
-            }
-        }
-     }
-    else if (event->key() == Qt::Key_F)
-    {
-        if(zwrot1 == 1)
-        {
-            if (pociski_enemy==0)
-            {
-                Bullet_enemy * bullet_enemy = new Bullet_enemy();
-                bullet_enemy->setPos(x()-7,y()-20);
-                bullet_enemy->setScale(0.7);
-                scene()->addItem(bullet_enemy);
-                pociski_enemy=pociski_enemy+1;
-            }
-            else if(pociski_enemy!=0)
-            {
-
-            }
-         }
-        else if(zwrot1 == 2)
-        {
-            if(pociski_enemy==0)
-            {
-                Bullet_enemy * bullet_enemy = new Bullet_enemy();
-                bullet_enemy->setPos(x()+20,y()-7);
-                bullet_enemy->setScale(0.7);
-                scene()->addItem(bullet_enemy);
-                pociski_enemy=pociski_enemy+1;
-            }
-            else if(pociski_enemy!=0)
-            {
-
-            }
-        }
-        else if(zwrot1 == 3)
-        {
-            if(pociski_enemy==0)
-            {
-                Bullet_enemy * bullet_enemy = new Bullet_enemy();
-                bullet_enemy->setPos(x()-7,y()+20);
-                bullet_enemy->setScale(0.7);
-                scene()->addItem(bullet_enemy);
-                pociski_enemy=pociski_enemy+1;
-            }
-            else if(pociski_enemy!=0)
-            {
-
-            }
-        }
-        else if(zwrot1 == 4)
-        {
-            if(pociski_enemy==0)
-            {
-                Bullet_enemy * bullet_enemy = new Bullet_enemy();
-                bullet_enemy->setPos(x()-20,y()-7);
-                bullet_enemy->setScale(0.7);
-                scene()->addItem(bullet_enemy);
-                pociski_enemy=pociski_enemy+1;
-            }
-            else if(pociski_enemy!=0)
-            {
-
-            }
-        }
-    }
-}
-*/

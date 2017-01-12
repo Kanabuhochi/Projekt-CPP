@@ -3,8 +3,6 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
-#include <QList>
-#include <typeinfo>
 
 class Brickhitright: public QObject, public QGraphicsPixmapItem
 {

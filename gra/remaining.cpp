@@ -10,5 +10,5 @@ Remaining::Remaining(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
 Remaining::~Remaining()
 {
-    qDebug()<<"REMAINING DELETED";
+
 }

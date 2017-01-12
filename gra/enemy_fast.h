@@ -14,7 +14,6 @@ public:
     QTimer * timer;
     QTimer * timer1;
     QTimer * timer2;
-  //  int pociski_enemy = 0;
     int zwrot1 = 3;
 
 public slots:

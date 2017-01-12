@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia
 CONFIG += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -22,7 +22,6 @@ SOURCES += main.cpp \
     bullet_enemy.cpp \
     tree.cpp \
     water.cpp \
-    ice.cpp \
     cursor.cpp \
     level1.cpp \
     brick.cpp \
@@ -35,7 +34,9 @@ SOURCES += main.cpp \
     panzer.cpp \
     remaining.cpp \
     nextlevel.cpp \
-    mapeditor.cpp
+    mapeditor.cpp \
+    eagle.cpp \
+    exp.cpp
 
 HEADERS  += \
     bullet.h \
@@ -46,7 +47,6 @@ HEADERS  += \
     bullet_enemy.h \
     tree.h \
     water.h \
-    ice.h \
     cursor.h \
     level1.h \
     brick.h \
@@ -59,7 +59,9 @@ HEADERS  += \
     panzer.h \
     remaining.h \
     nextlevel.h \
-    mapeditor.h
+    mapeditor.h \
+    eagle.h \
+    exp.h
 
 FORMS    +=
 

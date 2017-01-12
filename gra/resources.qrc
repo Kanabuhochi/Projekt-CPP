@@ -28,11 +28,29 @@
         <file>images/tlo/floor.jpg</file>
         <file>images/tlo/anim.png</file>
         <file>images/tlo/change.png</file>
+        <file>images/tlo/deagle.png</file>
+        <file>images/tlo/eagle.png</file>
+        <file>images/tlo/end.png</file>
+        <file>images/tlo/scores.png</file>
     </qresource>
     <qresource prefix="/levels">
-        <file>levels/level1.txt</file>
         <file>levels/editor.txt</file>
-        <file>levels/level2.txt</file>
-        <file>levels/level3.txt</file>
+        <file>levels/level1.txt</file>
+    </qresource>
+    <qresource prefix="/exp">
+        <file>images/explode/ex1.png</file>
+        <file>images/explode/ex2.png</file>
+        <file>images/explode/ex3.png</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file>sounds/BRICKHIT.wav</file>
+        <file>sounds/DESTROYEAGLE.wav</file>
+        <file>sounds/END.wav</file>
+        <file>sounds/GAME OVER.wav</file>
+        <file>sounds/MOVING.wav</file>
+        <file>sounds/SHOT.wav</file>
+        <file>sounds/START.wav</file>
+        <file>sounds/TANKHIT.wav</file>
+        <file>sounds/WALL.wav</file>
     </qresource>
 </RCC>

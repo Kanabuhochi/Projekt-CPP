@@ -14,7 +14,6 @@ public:
     QTimer * timer;
     QTimer * timer1;
     QTimer * timer2;
-  //  int pociski_enemy = 0;
     int zwrot1 = 3;
 
 public slots:
@@ -25,8 +24,6 @@ public slots:
     void ruch2();
     void ruch3();
     void ruch4();
-
-   // void keyPressEvent(QKeyEvent * event);
 
 };
 

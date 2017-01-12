@@ -19,6 +19,8 @@ extern Game * game;
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/images/images/gracz/gracz_up.png"));
+
+
 }
 
 
@@ -30,6 +32,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             setPos(x()-3,y());
             zwrot = 4;
+
+
         }
         setPixmap(QPixmap(":/images/images/gracz/gracz_lewo.png"));
         QList<QGraphicsItem *> kolizje_sciana = collidingItems();
@@ -82,6 +86,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             setPos(x()+3,y());
             zwrot = 2;
+
+
         }
         setPixmap(QPixmap(":/images/images/gracz/gracz_prawo.png"));
         QList<QGraphicsItem *> kolizje_sciana = collidingItems();
@@ -133,6 +139,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             setPos(x(),y()-3);
             zwrot = 1;
+
+
         }
         setPixmap(QPixmap(":/images/images/gracz/gracz_up.png"));
         QList<QGraphicsItem *> kolizje_sciana = collidingItems();
@@ -184,6 +192,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             setPos(x(),y()+3);
             zwrot = 3;
+
+
         }
         setPixmap(QPixmap(":/images/images/gracz/gracz_dol.png"));
         QList<QGraphicsItem *> kolizje_sciana = collidingItems();
@@ -231,11 +241,16 @@ void Player::keyPressEvent(QKeyEvent *event)
      }
     else if (event->key() == Qt::Key_Space)
     {
+        game->wall->stop();
+        game->bhit->stop();
+        game->tank->stop();
+        game->shot->stop();
         if(zwrot == 1)
         {
-
             if (game->pociski_gracz==0)
             {
+
+                game->shot->play();
                 Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()-7,y()-20);
                 bullet->setScale(0.7);
@@ -251,6 +266,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             if(game->pociski_gracz==0)
             {
+
+                game->shot->play();
                 Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()+20,y()-7);
                 bullet->setScale(0.7);
@@ -266,6 +283,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             if(game->pociski_gracz==0)
             {
+
+                game->shot->play();
                 Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()-7,y()+20);
                 bullet->setScale(0.7);
@@ -281,6 +300,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             if(game->pociski_gracz==0)
             {
+
+                game->shot->play();
                 Bullet * bullet = new Bullet(zwrot);
                 bullet->setPos(x()-20,y()-7);
                 bullet->setScale(0.7);

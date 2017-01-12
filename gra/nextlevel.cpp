@@ -6,18 +6,34 @@ extern Game * game;
 Nextlevel::Nextlevel()
 {
 
+    click = new QMediaPlayer();
+    click->setMedia(QUrl("qrc:/sound/sounds/START.wav"));
+    click->setVolume(100);
     game->scene->clear();
     game->setBackgroundBrush(QBrush(QImage(":/images/images/tlo/floor.jpg")));
-    game->setScene(game->scene);
     game->klocki.clear();
-   // top->setPos(0,0);
-  //  top->setPixmap(QPixmap(":/images/images/enemy/enemy_left.jpg"));
-//    bottom->setRect(0,600,500,500);
     timer = new QTimer();
     timer2 = new QTimer();
 
-    QString s = QString("%1").arg(game->stage);
-    stage = new QGraphicsTextItem(QString("Stage ")+s);
+    if (game->stage == 1)
+    {
+        QString s = QString("%1").arg(game->stage);
+        stage = new QGraphicsTextItem(QString("Stage ")+s);
+        click->play();
+
+    }
+    else if (game->stage > 1)
+    {
+        QString s = QString("%1").arg(game->stage);
+        stage = new QGraphicsTextItem(QString("Stage ")+s);
+        click->play();
+
+    }
+    else if (game->stage == 0)
+    {
+        stage = new QGraphicsTextItem(QString("Editor"));
+
+    }
     stage->setPos(400,300);
 
 
@@ -69,7 +85,7 @@ void Nextlevel::level()
 
 Nextlevel::~Nextlevel()
 {
-    qDebug()<<" NEXTLEVEL DELETED";
+
     delete timer;
     delete timer2;
     delete stage;

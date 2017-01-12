@@ -9,6 +9,7 @@
 #include <typeinfo>
 #include <QDebug>
 #include <QObject>
+#include "exp.h"
 //extern int zwrot1;
 //extern int pociski_enemy;
 //Enemy * enemy;
@@ -54,29 +55,7 @@ Bullet_enemy::Bullet_enemy(int zwrot1): QObject()//, int pociski_enemy): QObject
         timer->start(30);
     }
 }
-/*void Bullet_enemy::move(int pociski_enemy)
-{
-    int zwrot1 = 1;
-    if(zwrot1==1)
-    {
-        ruch11(pociski_enemy);
-    }
-    else if(zwrot1==2)
-    {
-        ruch22(pociski_enemy);
-    }
 
-    else if(zwrot1==3)
-    {
-        ruch33(pociski_enemy);
-    }
-
-    else if(zwrot1==4)
-    {
-        ruch44(pociski_enemy);
-    }
-}
-*/
 void Bullet_enemy::ruch11()
 {
         //int pociski_enemy = enemy->pociski_enemy;
@@ -94,8 +73,23 @@ void Bullet_enemy::ruch11()
             }
             else if(typeid(*(kolizje1[i])) == typeid(Player))
             {
+                    game->timer->start(10);
+                    game->endo->play();
+                    game->gam = new QGraphicsTextItem(QString("GAME"));
+                    game->over = new QGraphicsTextItem(QString("OVER"));
+                    game->gam->setPos(380,600);
+                    game->gam->setDefaultTextColor(Qt::red);
+                    game->over->setDefaultTextColor(Qt::red);
+                    game->gam->setScale(1);
+                    game->over->setScale(1);
+                    game->over->setPos(380,620);
+                    game->scene->addItem(game->gam);
+                    game->scene->addItem(game->over);
                     scene()->removeItem(kolizje1[i]);
                     scene()->removeItem(this);
+                    Exp *exp = new Exp();
+                    exp->setPos(kolizje1[i]->pos().x(),kolizje1[i]->pos().y());
+                    game->scene->addItem(exp);
                     delete kolizje1[i];
                     timer->stop();
                     delete timer;
@@ -119,7 +113,7 @@ void Bullet_enemy::ruch11()
                     //pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje1[i])) == typeid(Brickhitdown))
+            else if(typeid(*(kolizje1[i])) == typeid(Brickhitdown) || typeid(*(kolizje1[i])) == typeid(Brickhitup))
             {
                     scene()->removeItem(kolizje1[i]);
                     scene()->removeItem(this);
@@ -197,6 +191,21 @@ void Bullet_enemy::ruch22()
             }
             else if(typeid(*(kolizje2[i])) == typeid(Player))
             {
+                    game->timer->start(10);
+                    game->endo->play();
+                    game->gam = new QGraphicsTextItem(QString("GAME"));
+                    game->over = new QGraphicsTextItem(QString("OVER"));
+                    game->gam->setPos(380,600);
+                    game->gam->setDefaultTextColor(Qt::red);
+                    game->over->setDefaultTextColor(Qt::red);
+                    game->gam->setScale(1);
+                    game->over->setScale(1);
+                    game->over->setPos(380,620);
+                    game->scene->addItem(game->gam);
+                    game->scene->addItem(game->over);
+                    Exp *exp = new Exp();
+                    exp->setPos(kolizje2[i]->pos().x(),kolizje2[i]->pos().y());
+                    game->scene->addItem(exp);
                     scene()->removeItem(kolizje2[i]);
                     scene()->removeItem(this);
                     delete kolizje2[i];
@@ -254,7 +263,7 @@ void Bullet_enemy::ruch22()
                     //pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje2[i])) == typeid(Brickhitleft))
+            else if(typeid(*(kolizje2[i])) == typeid(Brickhitleft) || typeid(*(kolizje2[i])) == typeid(Brickhitright))
             {
                     scene()->removeItem(kolizje2[i]);
                     scene()->removeItem(this);
@@ -300,6 +309,21 @@ void Bullet_enemy::ruch33()
             }
             else if(typeid(*(kolizje3[i])) == typeid(Player))
             {
+                    game->timer->start(10);
+                    game->endo->play();
+                    game->gam = new QGraphicsTextItem(QString("GAME"));
+                    game->over = new QGraphicsTextItem(QString("OVER"));
+                    game->gam->setPos(380,600);
+                    game->gam->setDefaultTextColor(Qt::red);
+                    game->over->setDefaultTextColor(Qt::red);
+                    game->gam->setScale(1);
+                    game->over->setScale(1);
+                    game->over->setPos(380,620);
+                    game->scene->addItem(game->gam);
+                    game->scene->addItem(game->over);
+                    Exp *exp = new Exp();
+                    exp->setPos(kolizje3[i]->pos().x(),kolizje3[i]->pos().y());
+                    game->scene->addItem(exp);
                     scene()->removeItem(kolizje3[i]);
                     scene()->removeItem(this);
                     delete kolizje3[i];
@@ -325,7 +349,7 @@ void Bullet_enemy::ruch33()
                     //pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje3[i])) == typeid(Brickhitup))
+            else if(typeid(*(kolizje3[i])) == typeid(Brickhitup) || typeid(*(kolizje3[i])) == typeid(Brickhitdown))
             {
                     scene()->removeItem(kolizje3[i]);
                     scene()->removeItem(this);
@@ -403,6 +427,21 @@ void Bullet_enemy::ruch44()
             }
             else if(typeid(*(kolizje4[i])) == typeid(Player))
             {
+                    game->timer->start(10);
+                    game->endo->play();
+                    game->gam = new QGraphicsTextItem(QString("GAME"));
+                    game->over = new QGraphicsTextItem(QString("OVER"));
+                    game->gam->setPos(380,600);
+                    game->gam->setDefaultTextColor(Qt::red);
+                    game->over->setDefaultTextColor(Qt::red);
+                    game->gam->setScale(1);
+                    game->over->setScale(1);
+                    game->over->setPos(380,620);
+                    game->scene->addItem(game->gam);
+                    game->scene->addItem(game->over);
+                    Exp *exp = new Exp();
+                    exp->setPos(kolizje4[i]->pos().x(),kolizje4[i]->pos().y());
+                    game->scene->addItem(exp);
                     scene()->removeItem(kolizje4[i]);
                     scene()->removeItem(this);
                     delete kolizje4[i];
@@ -469,7 +508,7 @@ void Bullet_enemy::ruch44()
                     //pociski_gracz=pociski_gracz-1;
                     return;
             }
-            else if(typeid(*(kolizje4[i])) == typeid(Brickhitright))
+            else if(typeid(*(kolizje4[i])) == typeid(Brickhitright) || typeid(*(kolizje4[i])) == typeid(Brickhitleft))
             {
                     scene()->removeItem(kolizje4[i]);
                     scene()->removeItem(this);
@@ -488,4 +527,9 @@ void Bullet_enemy::ruch44()
             delete this;
         //    pociski_enemy=pociski_enemy-1;
         }
+}
+
+Bullet_enemy::~Bullet_enemy()
+{
+
 }

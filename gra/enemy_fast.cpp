@@ -14,7 +14,7 @@
 Enemy_fast::Enemy_fast(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
         srand (time(NULL));
-        int x = rand() % 5000 + 1500;
+        int x = rand() % 3000 + 1500;
         int y = rand() % 2000 + 1500;
         setPixmap(QPixmap(":/images/images/enemy/enemy_up.png"));
         timer = new QTimer();

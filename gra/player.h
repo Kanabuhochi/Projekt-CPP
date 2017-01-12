@@ -5,6 +5,7 @@
 #include <QGraphicsItem>
 #include <QTimer>
 #include "bullet.h"
+#include <QMediaPlayer>
 
 class Player: public QObject, public QGraphicsPixmapItem
 {
@@ -13,7 +14,6 @@ public:
     Player(QGraphicsItem * parent=0);
     ~Player();
     int zwrot = 1;
-    void keyPressEvent(QKeyEvent *event);
-};
+    void keyPressEvent(QKeyEvent *event);};
 
 #endif // PLAYER_H

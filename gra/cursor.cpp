@@ -2,9 +2,8 @@
 #include <QKeyEvent>
 #include <Qdebug.h>
 //#include "menu.h"
-#include "game.h"
 #include "level1.h"
-#include "level2.h"
+
 #include "nextlevel.h"
 
 //extern Menu * menu;
@@ -47,9 +46,12 @@ void Cursor::keyPressEvent(QKeyEvent *event)
     {
         if(game->move == 0)
         {
+            game->stage = 1;
             delete this;
+
             //Level1 * level1 = new Level1();
             Nextlevel * nextlevel = new Nextlevel();
+
 
         }
         else if(game->move == 1)
@@ -58,14 +60,15 @@ void Cursor::keyPressEvent(QKeyEvent *event)
         }
         else if(game->move == 2)
         {
-            delete this;
             game->stage = 0;
+            delete this;
             Nextlevel * nextlevel = new Nextlevel();
+
         }
     }
 }
 
 Cursor::~Cursor()
 {
-       qDebug()<< "CURSOR DELETED";
+    //delete click;
 }

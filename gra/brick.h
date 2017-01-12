@@ -3,8 +3,6 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
-#include <QList>
-#include <typeinfo>
 
 class Brick: public QObject, public QGraphicsPixmapItem
 {
@@ -12,7 +10,6 @@ class Brick: public QObject, public QGraphicsPixmapItem
 public:
     Brick(QGraphicsItem * parent=0);
     ~Brick();
-    void zburz();
 };
 
 

@@ -1,11 +1,6 @@
 #ifndef LEVEL1_H
 #define LEVEL1_H
 
-#include "game.h"
-#include "player.h"
-#include "ice.h"
-#include "mapeditor.h"
-#include "brick.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QBrush>
@@ -16,6 +11,8 @@
 #include <QChar>
 #include <QTextStream>
 #include <QFile>
+#include "game.h"
+#include "mapeditor.h"
 
 
 class Level1

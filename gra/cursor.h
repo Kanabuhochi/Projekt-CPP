@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QKeyEvent>
-
 class Cursor: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT

@@ -13,11 +13,10 @@ class Bullet_enemy: public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Bullet_enemy(int zwrot);//, int pociski_enemy);
+    Bullet_enemy(int zwrot);
+    ~Bullet_enemy();
     QTimer * timer;
-   // int pociski_enemy;
 public slots:
-    //void move(int pociski_enemy);
     void ruch11();
     void ruch22();
     void ruch33();

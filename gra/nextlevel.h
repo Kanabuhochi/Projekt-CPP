@@ -8,6 +8,8 @@
 #include <QTimer>
 #include "game.h"
 #include <QDebug>
+#include <QMediaPlayer>
+
 class Nextlevel: public QObject
 {
     Q_OBJECT
@@ -20,6 +22,8 @@ public:
     QGraphicsPixmapItem * bottom;
     QGraphicsTextItem * stage;
     ~Nextlevel();
+    QMediaPlayer * click;
+
 
 
 public slots:

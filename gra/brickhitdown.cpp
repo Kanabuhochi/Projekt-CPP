@@ -15,7 +15,7 @@ Brickhitdown::Brickhitdown(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
 Brickhitdown::~Brickhitdown()
 {
-    qDebug()<<" DOWNBRICK DELETED";
+
 }
 
 

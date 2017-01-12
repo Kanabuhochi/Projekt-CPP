@@ -18,7 +18,7 @@
 #include <qdebug.h>
 #include <level2.h>
 #include "player.h"
-
+#include <QMediaPlayer>
 
 
 class Bullet: public QObject,public QGraphicsPixmapItem
@@ -27,7 +27,7 @@ class Bullet: public QObject,public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Bullet(int zwrot);
-
+    QTimer * timer;
 public slots:
     //void move();
 

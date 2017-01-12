@@ -3,9 +3,7 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
-#include <QList>
-#include "brick.h"
-#include <typeinfo>
+
 
 class Brickhitleft: public QObject, public QGraphicsPixmapItem
 {

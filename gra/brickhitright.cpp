@@ -15,7 +15,7 @@ Brickhitright::Brickhitright(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 
 Brickhitright::~Brickhitright()
 {
-    qDebug()<<" RIGHTBRICK DELETED";
+
 }
 
 
